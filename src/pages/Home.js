@@ -1,10 +1,10 @@
-import Header from "./Header";
+import Header from "../components/Header";
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <h1>Welcome to Doggymatch</h1>
+      <h1>Home</h1>
     </div>
   );
 };

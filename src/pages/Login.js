@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { login } from "../services/authServices";
-import Form from "./common/Form";
+import Form from "../components/common/Form";
 
 class Login extends Form {
   state = { data: { email: "", password: "" }, errors: {} };

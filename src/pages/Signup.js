@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { register } from "../services/userServices";
-import Form from "./common/Form";
+import Form from "../components/common/Form";
 
 class Signup extends Form {
   state = { data: { name: "", email: "", password: "" }, errors: {} };
