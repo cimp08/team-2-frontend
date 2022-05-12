@@ -59,7 +59,9 @@ const Navbar = ({ menuOpen, setMenuOpen }) => (
     </div>
     <div className="flex items-center">
       <Link to="/login">
-        <button className="btn">Login</button>
+        <button className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full">
+          Login
+        </button>
       </Link>
       <button
         type="button"

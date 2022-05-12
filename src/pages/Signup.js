@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { register } from "../services/userServices";
 import Form from "../components/common/Form";
@@ -32,6 +33,7 @@ class Signup extends Form {
             Already have an account? <Link to="/login">Login</Link>
           </div>
         </form>
+        <Footer />
       </div>
     );
   }

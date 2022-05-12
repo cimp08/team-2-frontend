@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { login } from "../services/authServices";
 import Form from "../components/common/Form";
@@ -24,7 +25,7 @@ class Login extends Form {
     return (
       <div>
         <Header />
-        <form onSubmit={this.handleSubmit} className="full_screen flex column">
+        <form onSubmit={this.handleSubmit} className="text-center">
           <div elevation={3}>
             <div className="form_heading">Login</div>
             {this.renderInput("email", "Email", "email")}
@@ -35,6 +36,7 @@ class Login extends Form {
             Don't have an account? <Link to="/signup">Signup</Link>
           </div>
         </form>
+        <Footer />
       </div>
     );
   }
