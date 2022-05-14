@@ -1,32 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getCurrentUser } from "../services/authServices";
+import AuthService from "../services/auth.service";
 import "./Header.css";
+import EventBus from "./common/EventBus";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [user, setUser] = useState("");
+  const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
-    setUser(getCurrentUser());
+    const user = AuthService.getCurrentUser();
+    if (user) {
+      setCurrentUser(user);
+    }
+
+    EventBus.on("logout", () => {
+      logOut();
+    });
+    return () => {
+      EventBus.remove("logout");
+    };
   }, []);
+
+  const logOut = () => {
+    AuthService.logout();
+    setCurrentUser(undefined);
+  };
 
   return (
     <div>
-      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      {menuOpen && <MobileMenu>{navLinks}</MobileMenu>}
+      <Navbar
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        currentUser={currentUser}
+        logOut={logOut}
+      />
+      {menuOpen && <MobileMenu>{MobileMenu}</MobileMenu>}
     </div>
   );
 };
 
-const pages = ["Products", "Find out", "Security", "Support", "Download"];
-const navLinks = pages.map((page) => (
-  <a key={page} className="navbar_links no-underline" href={`#${page}`}>
-    {page}
-  </a>
-));
-
-const Navbar = ({ menuOpen, setMenuOpen }) => (
+const Navbar = ({ menuOpen, setMenuOpen, currentUser, logOut }) => (
   <div className="flex items-center p-4 justify-between mb-5">
     <div className="flex items-center">
       <Link to="/">
@@ -34,35 +48,42 @@ const Navbar = ({ menuOpen, setMenuOpen }) => (
       </Link>
       <nav className="hidden md:block">
         <ul className="flex space-x-10">
+          {currentUser && (
+            <li>
+              <Link to="/profile">
+                <button className="navbar_links">Profile</button>
+              </Link>
+            </li>
+          )}
           <li>
             <Link to="/#">
-              <button className="navbar_links">Products</button>
+              <button className="navbar_links">Link 1</button>
             </Link>
           </li>
           <li>
             <Link to="/#">
-              <button className="navbar_links">Find Out</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/#">
-              <button className="navbar_links">Security</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/#">
-              <button className="navbar_links">Support</button>
+              <button className="navbar_links">Link 2</button>
             </Link>
           </li>
         </ul>
       </nav>
     </div>
     <div className="flex items-center">
-      <Link to="/login">
-        <button className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full">
-          Login
+      {currentUser ? (
+        <button
+          className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full"
+          onClick={logOut}
+        >
+          LogOut
         </button>
-      </Link>
+      ) : (
+        <Link to="/login">
+          <button className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full">
+            Login
+          </button>
+        </Link>
+      )}
+
       <button
         type="button"
         aria-label="Toggle mobile menu"
@@ -120,26 +141,3 @@ const MenuAlt4Svg = ({ menuOpen }) => (
 );
 
 export default Header;
-
-/* {
-  !user && (
-    <div>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-      <Link to="/signup">
-        <button>Signup</button>
-      </Link>
-    </div>
-  );
-}
-{
-  user && (
-    <div>
-      <h4>{user.name}</h4>
-      <Link to="/logout">
-        <button>Logout</button>
-      </Link>
-    </div>
-  );
-} */
