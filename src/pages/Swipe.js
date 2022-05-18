@@ -12,9 +12,8 @@ const Swipe = () => {
 				<SwipeHeader />
 				<div className="m-20">
 					<DogCards />
-					<div className="p-20">
-						<SwipeButtons />
-					</div>
+
+					<SwipeButtons />
 				</div>
 			</div>
 		</>
