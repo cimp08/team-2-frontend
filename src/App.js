@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import "./App.css";
 import Swipe from "./pages/Swipe";
+import CreateProfile from "./pages/CreateProfile";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/swipe" element={<Swipe />} />
+      <Route path="/createprofile" element={<CreateProfile />} />
     </Routes>
   );
 }
