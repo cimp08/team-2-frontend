@@ -42,7 +42,7 @@ const DogCards = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center content-center h-full">
+		<div className="flex flex-col justify-center content-center pb-14">
 			<div className="w-72 h-96">
 				{dogs.map((dog) => (
 					<TinderCard
