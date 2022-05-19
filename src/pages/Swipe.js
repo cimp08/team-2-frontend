@@ -8,9 +8,9 @@ const Swipe = () => {
 	return (
 		<>
 			<Header />
-			<div className="flex justify-center">
+			<div className="flex justify-center m-20">
 				<SwipeHeader />
-				<div className="m-20">
+				<div className="swipe_cards_buttons">
 					<DogCards />
 
 					<SwipeButtons />
