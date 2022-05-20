@@ -1,0 +1,17 @@
+.swipe_header .MuiIconButton-root {
+    background-color: white;
+    box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+    font-size: 3rem !important;
+}
+
+.swipe_paw {
+    padding: 5px !important;
+}
+
+.swipe_settings {
+    padding: 5px !important;
+}
+
+.swipe_chat {
+    padding: 5px !important;
+}

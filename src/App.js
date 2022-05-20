@@ -2,8 +2,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Logout from "./pages/Logout";
+import Profile from "./pages/Profile";
 import "./App.css";
+import Swipe from "./pages/Swipe";
+import CreateProfile from "./pages/CreateProfile";
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
       <Route path="/" exact element={<Home />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/swipe" element={<Swipe />} />
+      <Route path="/createprofile" element={<CreateProfile />} />
     </Routes>
   );
 }
