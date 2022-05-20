@@ -2,9 +2,16 @@
   margin: 50px auto;
 }
 
+.onboarding-container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+} 
+
 .onboarding form {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .onboarding form section {
@@ -36,6 +43,8 @@
 .onboarding form .multiple-input-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .onboarding form .multiple-input-container input {
@@ -47,7 +56,7 @@
   border: solid 2px rgb(144, 144, 144);
   border-radius: 10px;
   transition: all 0.3s;
-  margin-right: 10px;
+  margin-right:10px;
 }
 
 .onboarding form input[type="radio"] {
@@ -73,4 +82,32 @@
 
 .onboarding form .photo-container img {
   width: 100%;
+}
+
+
+@media only screen and (max-width: 750px){
+  div.onboarding{
+    width: 100%;
+  }
+
+  .onboarding form {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .onboarding form section{
+    width: 100%;
+    text-align: center;
+    align-content: center;
+  }
+
+  .onboarding form .multiple-input-container label{
+    margin-right:3px;
+
+  }
+
+  #show-gender{
+    width: 100%;
+
+  }
 }
