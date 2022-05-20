@@ -1,0 +1,49 @@
+.home {
+  margin-bottom: 250px;
+}
+
+.home-text {
+  color: #fff;
+  font-weight: 600;
+  font-size: 78px;
+  line-height: 192px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.doggymatch-dog {
+  width: 414px;
+  height: 368px;
+  position: absolute;
+  left: 65.07%;
+  right: 6.18%;
+  top: 27.79%;
+  bottom: 55.11%;
+  background: url(../assets/img/doggymatch-dog.svg);
+}
+
+.home-testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.testimonials-card {
+  width: 281px;
+  margin: 50px 0;
+}
+
+.testimonials-heading {
+  margin-bottom: 15px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  color: #59575f;
+}
+
+.testimonials-text {
+  font-style: normal;
+  font-size: 16px;
+  color: #59575f;
+}
