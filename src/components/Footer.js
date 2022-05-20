@@ -1,8 +1,6 @@
-import "./Footer.css";
-
 const Footer = () => {
   return (
-    <footer className="footer pt-1 mt-10">
+    <footer className="flex-none pt-1">
       <div className="container mx-auto px-6 border-t-2 border-gray-600">
         <div className="sm:flex sm:mt-8">
           <div className="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
