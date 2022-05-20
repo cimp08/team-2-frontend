@@ -63,7 +63,7 @@ const Login = () => {
   return (
     <>
       <Header />
-      <div className="h-screen flex">
+      <section className="grow my-8">
         <div className="w-full max-w-md m-auto bg-white rounded-3xl border border-primaryBorder shadow-2xl py-10 px-10">
           <h1 className="text-5xl font-normal mt-4 mb-10">Log in</h1>
 
@@ -121,7 +121,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <Footer />
     </>
   );

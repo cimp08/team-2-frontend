@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div className="flex-none">
       <Navbar
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
