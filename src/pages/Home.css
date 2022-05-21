@@ -1,5 +1,5 @@
 .home {
-  margin-bottom: 250px;
+  margin-bottom: 30px;
 }
 
 .home-text {
@@ -10,14 +10,15 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+@media only screen and (max-width: 500px) {
+  .home-text {
+    font-size: 40px;
+  }
+}
+
 .doggymatch-dog {
   width: 414px;
   height: 368px;
-  position: absolute;
-  left: 65.07%;
-  right: 6.18%;
-  top: 27.79%;
-  bottom: 55.11%;
   background: url(../assets/img/doggymatch-dog.svg);
 }
 

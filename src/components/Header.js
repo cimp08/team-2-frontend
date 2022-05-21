@@ -49,36 +49,52 @@ const Navbar = ({ menuOpen, setMenuOpen, currentUser, logOut }) => (
       <nav className="hidden md:block">
         <ul className="flex space-x-10">
           {currentUser && (
-            <li>
-              <Link to="/profile">
-                <button className="navbar_links">Profile</button>
-              </Link>
-            </li>
+            <>
+              <li>
+                <Link to="/profile">
+                  <button className="navbar_links">Profile</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/createprofile">
+                  <button className="navbar_links">Create Profile</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/swipe">
+                  <button className="navbar_links">Swipe</button>
+                </Link>
+              </li>
+            </>
           )}
-          <li>
-            <Link to="/#">
-              <button className="navbar_links">Link 1</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/#">
-              <button className="navbar_links">Link 2</button>
-            </Link>
-          </li>
+          {!currentUser && (
+            <>
+              <li>
+                <Link to="/#">
+                  <button className="navbar_links">Link 1</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <button className="navbar_links">Link 2</button>
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </div>
     <div className="flex items-center">
       {currentUser ? (
         <button
-          className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full"
+          className="bg-purple-500 hover:bg-purple-700 text-white text-sm sm:text-base py-2 px-6 sm:py-2 sm:px-9 rounded-full"
           onClick={logOut}
         >
           LogOut
         </button>
       ) : (
         <Link to="/login">
-          <button className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full">
+          <button className="bg-purple-500 hover:bg-purple-700 text-white text-sm sm:text-base py-3 px-4 sm:py-2 sm:px-9 rounded-full">
             Login
           </button>
         </Link>
