@@ -1,7 +1,9 @@
+import "./ChatHeader.css";
+
 const ChatHeader = () => {
   return (
-    <div>
-      <div>Chat header</div>
+    <div className="chat-header">
+      <h1>Chat with Bubbles</h1>
     </div>
   );
 };

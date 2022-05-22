@@ -1,0 +1,9 @@
+.chat-header{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.chat-header h1 {
+    font-size: 4vh;
+}

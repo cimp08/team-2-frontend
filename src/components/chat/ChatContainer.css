@@ -1,0 +1,22 @@
+.chat-container {
+    display: flex;
+    justify-content: center;
+    border: solid 1px red;
+    
+}
+
+.chat-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.option{
+    border-bottom: solid 4px rgb(134, 65, 190);
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.option:disabled{
+    border-bottom: solid 4px rgb(89, 88, 91)
+}

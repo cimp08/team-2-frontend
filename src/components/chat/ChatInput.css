@@ -1,0 +1,12 @@
+.chat-input{
+    display: flex;
+    justify-content: center;
+
+}
+
+.chat-input textarea{
+    border: solid 1px rgb(154, 152, 152);
+    width: 80%;
+    margin-right: 10px;
+    height: 4vh;
+}
