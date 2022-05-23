@@ -55,7 +55,7 @@ const DogCards = () => {
 							style={{ backgroundImage: `url(${dog.url})` }}
 							className="w-72 h-96 shadow-xl bg-cover bg-center rounded-3xl"
 						>
-							<div className="info_container bg-white w-64 h-28 p-4 rounded-3xl absolute text-xs shadow-2xl">
+							<div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 h-28 p-4 rounded-3xl absolute text-xs shadow-2xl">
 								<p className="text-sm font-semibold">{dog.name}</p>
 								<List className="list-none">
 									<li>
