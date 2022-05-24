@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-image: url("/src/assets/img/image-background.svg");
+  background-image: url("/src/assets/img/image-background.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
