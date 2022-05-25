@@ -1,3 +1,5 @@
+import "./Footer.css";
+
 const Footer = () => {
   return (
     <footer className="flex-none pt-1">
@@ -126,12 +128,7 @@ const Footer = () => {
       <div className="container mx-auto px-10">
         <div className="mt-8 flex flex-col">
           <div>
-            <a
-              href="/#"
-              className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-9 rounded-full"
-            >
-              Download App!
-            </a>
+            <button className="app-button">Download App!</button>
           </div>
         </div>
       </div>

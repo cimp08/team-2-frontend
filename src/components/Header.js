@@ -86,17 +86,12 @@ const Navbar = ({ menuOpen, setMenuOpen, currentUser, logOut }) => (
     </div>
     <div className="flex items-center">
       {currentUser ? (
-        <button
-          className="bg-purple-500 hover:bg-purple-700 text-white text-sm sm:text-base py-2 px-6 sm:py-2 sm:px-9 rounded-full"
-          onClick={logOut}
-        >
+        <button className="log-button" onClick={logOut}>
           LogOut
         </button>
       ) : (
         <Link to="/login">
-          <button className="bg-purple-500 hover:bg-purple-700 text-white text-sm sm:text-base py-3 px-4 sm:py-2 sm:px-9 rounded-full">
-            Login
-          </button>
+          <button className="log-button">Login</button>
         </Link>
       )}
 
