@@ -31,8 +31,8 @@ const Signup = () => {
         { email, name, password }
       );
 
-      setCookie("AuthToken", response.data.token);
-      setCookie("UserId", response.data.userId);
+      setCookie("AuthToken", response.data.user);
+      setCookie("UserId", response.data.user.userId);
 
       const success = response.status === 201;
       if (success) navigate("/createprofile");
