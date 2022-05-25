@@ -42,7 +42,7 @@ const CreateProfile = () => {
   return (
     <>
       <Header />
-      <div className="onboarding bg-white  rounded-3xl  shadow-2xl py-10 px-2 text-center">
+      <div className="onboarding bg-white w-3/4 rounded-3xl  shadow-2xl py-10 px-2 text-center">
         <h1 className="text-5xl font-normal mt-4 mb-10">
           Create Doggy Profile
         </h1>
@@ -161,7 +161,7 @@ const CreateProfile = () => {
             <label htmlFor="about">About me</label>
             <input
               id="about"
-              type="textbox"
+              type="textarea"
               name="about"
               required={true}
               placeholder="I like to be petted..."
@@ -181,7 +181,9 @@ const CreateProfile = () => {
               required={true}
             />
             <div className="photo-container">
-              <img src={formData.url} alt="profile pic preview" />
+              {formData.url && (
+                <img src={formData.url} alt="profile pic preview" />
+              )}
             </div>
           </section>
 
