@@ -24,8 +24,8 @@ const Login = () => {
         }
       );
 
-      setCookie("AuthToken", response.data.token);
-      setCookie("UserId", response.data.userId);
+      setCookie("AuthToken", response.data.user);
+      setCookie("UserId", response.data.user.userId);
 
       const success = response.status === 200;
       if (success) navigate("/swipe");
