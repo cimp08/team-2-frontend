@@ -1,30 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
-import AuthService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
-import EventBus from "./common/EventBus";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+  const authToken = cookies.AuthToken;
 
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
-    if (user) {
-      setCurrentUser(user);
-    }
+  let navigate = useNavigate();
 
-    EventBus.on("logout", () => {
-      logOut();
-    });
-    return () => {
-      EventBus.remove("logout");
-    };
-  }, []);
+  const logout = () => {
+    removeCookie("UserId", cookies.UserId);
+    removeCookie("AuthToken", cookies.AuthToken);
 
-  const logOut = () => {
-    AuthService.logout();
-    setCurrentUser(undefined);
+    navigate("/");
+    window.location.reload();
   };
 
   return (
@@ -32,15 +24,15 @@ const Header = () => {
       <Navbar
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-        currentUser={currentUser}
-        logOut={logOut}
+        authToken={authToken}
+        logout={logout}
       />
       {menuOpen && <MobileMenu>{MobileMenu}</MobileMenu>}
     </div>
   );
 };
 
-const Navbar = ({ menuOpen, setMenuOpen, currentUser, logOut }) => (
+const Navbar = ({ menuOpen, setMenuOpen, authToken, logout }) => (
   <div className="flex items-center p-4 justify-between mb-5">
     <div className="flex items-center">
       <Link to="/">
@@ -48,51 +40,33 @@ const Navbar = ({ menuOpen, setMenuOpen, currentUser, logOut }) => (
       </Link>
       <nav className="hidden md:block">
         <ul className="flex space-x-10">
-          {currentUser && (
-            <>
-              <li>
-                <Link to="/profile">
-                  <button className="navbar_links">Profile</button>
-                </Link>
-              </li>
-              <li>
-                <Link to="/createprofile">
-                  <button className="navbar_links">Create Profile</button>
-                </Link>
-              </li>
-              <li>
-                <Link to="/swipe">
-                  <button className="navbar_links">Swipe</button>
-                </Link>
-              </li>
-            </>
-          )}
-          {!currentUser && (
-            <>
-              <li>
-                <Link to="/#">
-                  <button className="navbar_links">Link 1</button>
-                </Link>
-              </li>
-              <li>
-                <Link to="/#">
-                  <button className="navbar_links">Link 2</button>
-                </Link>
-              </li>
-            </>
-          )}
+          <li>
+            <Link to="/profile">
+              <button className="navbar_links">Profile</button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/createprofile">
+              <button className="navbar_links">Create Profile</button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/swipe">
+              <button className="navbar_links">Swipe</button>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
     <div className="flex items-center">
-      {currentUser ? (
-        <button className="log-button" onClick={logOut}>
-          LogOut
-        </button>
-      ) : (
+      {!authToken ? (
         <Link to="/login">
           <button className="log-button">Login</button>
         </Link>
+      ) : (
+        <button className="log-button" onClick={logout}>
+          Logout
+        </button>
       )}
 
       <button
