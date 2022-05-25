@@ -10,9 +10,7 @@ const Home = () => {
       <div className="home text-center">
         <h1 className="home-text">Swipe Right</h1>
         <Link to="/signup">
-          <button className="bg-purple-500 hover:bg-purple-700 text-white text-xl py-4 px-12 rounded-full">
-            Sign up
-          </button>
+          <button className="sign-button">Sign up</button>
         </Link>
       </div>
       <div className="flex justify-end">
