@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import "./App.css";
 import Swipe from "./pages/Swipe";
 import CreateProfile from "./pages/CreateProfile";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/swipe" element={<Swipe />} />
       <Route path="/createprofile" element={<CreateProfile />} />
+      <Route path="/chat" element={<Chat />} />
     </Routes>
   );
 }
