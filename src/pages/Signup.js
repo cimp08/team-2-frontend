@@ -5,6 +5,7 @@ import { useCookies } from "react-cookie";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import "./Signup.css";
 
 const Signup = () => {
   const [name, setName] = useState(null);
@@ -38,6 +39,7 @@ const Signup = () => {
       if (success) navigate("/createprofile");
       window.location.reload();
     } catch (error) {
+      setError(error.response.data.msg);
       console.log(error);
     }
   };
@@ -95,11 +97,12 @@ const Signup = () => {
             </div>
             <div className="flex justify-center items-center mt-6">
               <input
-                className="w-full bg-purple-500 shadow-xl hover:bg-purple-700 text-white py-2 px-9 rounded-full"
+                className="w-full signup-button"
                 type="submit"
+                value="Sign up"
               />
             </div>
-            <p>{error}</p>
+            {error && <p className="text-red-500 text-xs mt-4">{error}</p>}
           </form>
 
           <div className="w-full border-t border-gray-400 mt-5">

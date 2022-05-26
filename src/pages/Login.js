@@ -4,10 +4,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useCookies } from "react-cookie";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [error, setError] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(null);
 
   let navigate = useNavigate();
@@ -31,6 +33,7 @@ const Login = () => {
       if (success) navigate("/swipe");
       window.location.reload();
     } catch (error) {
+      setError(error.response.data.msg);
       console.log(error);
     }
   };
@@ -66,10 +69,12 @@ const Login = () => {
             </div>
             <div className="flex justify-center items-center mt-6">
               <input
-                className="w-full bg-purple-500 shadow-xl hover:bg-purple-700 text-white py-2 px-9 rounded-full"
+                className="w-full login-button"
                 type="submit"
+                value="Login"
               />
             </div>
+            {error && <p className="text-red-500 text-xs mt-4">{error}</p>}
           </form>
 
           <div className="w-full border-t border-gray-400 mt-5">
