@@ -38,25 +38,22 @@ const Navbar = ({ menuOpen, setMenuOpen, authToken, logout }) => (
       <Link to="/">
         <p className="logo no-underline mr-10">DoggyMatch</p>
       </Link>
-      <nav className="hidden md:block">
-        <ul className="flex space-x-10">
-          <li>
-            <Link to="/profile">
-              <button className="navbar_links">Profile</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/createprofile">
-              <button className="navbar_links">Create Profile</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/swipe">
-              <button className="navbar_links">Swipe</button>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      {authToken && (
+        <nav className="hidden md:block">
+          <ul className="flex space-x-10">
+            <li>
+              <Link to="/createprofile">
+                <button className="navbar_links">Create Profile</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/swipe">
+                <button className="navbar_links">Swipe</button>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </div>
     <div className="flex items-center">
       {!authToken ? (
