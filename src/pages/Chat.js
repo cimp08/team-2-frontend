@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import SwipeHeader from "../components/swipe/SwipeHeader";
+import SwipeHeader from "../components/SwipeHeader";
 import "./Chat.css";
 import ChatContainer from "../components/chat/ChatContainer";
 
