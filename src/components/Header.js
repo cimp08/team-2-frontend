@@ -7,13 +7,13 @@ import "./Header.css";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
-  const authToken = cookies.AuthToken;
+  const authToken = cookies.token;
 
   let navigate = useNavigate();
 
   const logout = () => {
-    removeCookie("UserId", cookies.UserId);
-    removeCookie("AuthToken", cookies.AuthToken);
+    removeCookie("userId", cookies.userId);
+    removeCookie("token", cookies.token);
 
     navigate("/");
     window.location.reload();

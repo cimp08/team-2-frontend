@@ -10,7 +10,7 @@ import Chat from "./pages/Chat";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
-  const authToken = cookies.AuthToken;
+  const authToken = cookies.token;
 
   return (
     <Routes>
