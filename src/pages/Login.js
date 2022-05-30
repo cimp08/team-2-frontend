@@ -26,12 +26,12 @@ const Login = () => {
         }
       );
       console.log(response);
-      setCookie("token", response.data.user);
-      setCookie("userId", response.data.user.userId);
+      //setCookie("token", response.data.user);
+      setCookie("userId", response.data.user._id);
 
       const success = response.status === 200;
-      if (success) navigate("/swipe");
-      window.location.reload(); 
+       if (success) navigate("/swipe");
+      window.location.reload();  
     } catch (error) {
       setError(error.response.data.msg);
       console.log(error);

@@ -7,13 +7,13 @@ import "./Header.css";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
-  const authToken = cookies.token;
+  const authUser = cookies.userId;
 
   let navigate = useNavigate();
 
   const logout = () => {
-    removeCookie("userId", cookies.userId);
-    removeCookie("token", cookies.token);
+   removeCookie("userId", cookies.userId);
+    //removeCookie("token", cookies.token); 
 
     navigate("/");
     window.location.reload();
@@ -24,7 +24,7 @@ const Header = () => {
       <Navbar
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-        authToken={authToken}
+        authUser={authUser}
         logout={logout}
       />
       {menuOpen && <MobileMenu>{MobileMenu}</MobileMenu>}
@@ -32,13 +32,13 @@ const Header = () => {
   );
 };
 
-const Navbar = ({ menuOpen, setMenuOpen, authToken, logout }) => (
+const Navbar = ({ menuOpen, setMenuOpen, authUser, logout }) => (
   <div className="flex items-center p-4 justify-between mb-5">
     <div className="flex items-center">
       <Link to="/">
         <p className="logo no-underline mr-10">DoggyMatch</p>
       </Link>
-      {authToken && (
+      {authUser && (
         <nav className="hidden md:block">
           <ul className="flex space-x-10">
             <li>
@@ -56,7 +56,7 @@ const Navbar = ({ menuOpen, setMenuOpen, authToken, logout }) => (
       )}
     </div>
     <div className="flex items-center">
-      {!authToken ? (
+      {!authUser ? (
         <Link to="/login">
           <button className="log-button">Login</button>
         </Link>

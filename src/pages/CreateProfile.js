@@ -9,7 +9,7 @@ import "./CreateProfile.css";
 const CreateProfile = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [formData, setFormData] = useState({
-    user: cookies.userId,
+    userId: cookies.userId,
     matches: [],
     dogName: "",
     breed: "",
@@ -26,8 +26,8 @@ const CreateProfile = () => {
     console.log("submitted");
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/v1/dogs/", {
-        formData,
+      const response = await axios.put("http://localhost:5000/api/v1/users", {
+        formData
       });
       const success = response.status === 201;
       if (success) navigate("/swipe");

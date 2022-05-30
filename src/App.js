@@ -10,16 +10,16 @@ import Chat from "./pages/Chat";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
-  const authToken = cookies.token;
+  const authUser = cookies.userId;
 
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      {authToken && <Route path="/swipe" element={<Swipe />} />}
-      {authToken && <Route path="/createprofile" element={<CreateProfile />} />}
-      {authToken && <Route path="/chat" element={<Chat />} />}
+      {authUser && <Route path="/swipe" element={<Swipe />} />}
+      {authUser && <Route path="/createprofile" element={<CreateProfile />} />}
+      {authUser && <Route path="/chat" element={<Chat />} />}
     </Routes>
   );
 }
