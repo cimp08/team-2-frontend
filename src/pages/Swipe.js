@@ -40,54 +40,41 @@ const Swipe = () => {
     },
   ]; */
 
-  const [dog, setDog] = useState(null);
-  const [dogs, setDogs] = useState(null);
+  const [user, setUser] = useState(null);
+  const [users, setUsers] = useState(null);
   const [genderedUsers, setGenderedUsers] = useState(null);
   const [lastDirection, setLastDirection] = useState();
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const userId = cookies.userId;
 
-  /*
-  How do we get the dogId to be able to find the logged in
-  user's dog
-  */
-  const dogId = null;
-  const getDog = async () => {
+
+  const getUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/v1/dogs/${dogId}`
+        `http://localhost:5000/api/v1/users/${userId}`
       );
-      setDog(response.data);
+      setUser(response.data);
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getDog();
-  }, [dog]);
-  console.log(dog);
 
-  const getAllDogs = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/v1/dogs`);
-      setDogs(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
-    getAllDogs();
+    getUser();
   }, []);
-  console.log(dogs);
+  console.log(user);
+  
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
     setLastDirection(direction);
   };
+
   const outOfFrame = (name) => {
     console.log(name + " left the screen!");
-  };
+  }; 
+
 
   return (
     <>
@@ -99,29 +86,29 @@ const Swipe = () => {
           <div className="swipe_cards_buttons flex flex-col">
             <div className="flex flex-col justify-center content-center pb-14">
               <div className="w-72 h-96">
-                {dogs
-                  ? dogs.dogs.map((dog) => (
+                {users
+                  ? users.map((user) => (
                       <TinderCard
                         className="swipe absolute"
-                        key={dog.name}
-                        onSwipe={(dir) => swiped(dir, dog.name)}
-                        onCardLeftScreen={() => outOfFrame(dog.name)}
+                        key={user.dogName}
+                        onSwipe={(dir) => swiped(dir, user.dogName)}
+                        onCardLeftScreen={() => outOfFrame(user.dogName)}
                       >
                         <div
-                          style={{ backgroundImage: `url(${dog.url})` }}
+                          style={{ backgroundImage: `url(${user.url})` }}
                           className="w-72 h-96 shadow-xl bg-cover bg-center rounded-3xl"
                         >
                           <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 h-28 p-4 rounded-3xl absolute text-xs shadow-2xl">
-                            <p className="text-sm font-semibold">{dog.name}</p>
+                            <p className="text-sm font-semibold">{user.dogName}</p>
                             <List className="list-none">
                               <li>
-                                <p>{dog.age}</p>
+                                <p>{user.age}</p>
                               </li>
                               <li>
-                                <p>{dog.breed}</p>
+                                <p>{user.breed}</p>
                               </li>
                               <li>
-                                <p>{dog.about}</p>
+                                <p>{user.about}</p>
                               </li>
                             </List>
                           </div>
