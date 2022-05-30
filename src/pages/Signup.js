@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = () => {
-  const [name, setName] = useState(null);
+  const [userName, setuserName] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
@@ -25,11 +25,11 @@ const Signup = () => {
         setError("Passwords need to match!");
         return;
       }
-      console.log(name, email, password);
+      console.log(userName, email, password);
 
       const response = await axios.post(
         "http://localhost:5000/api/v1/auth/register",
-        { email, name, password }
+        { email, userName, password }
       );
 
       /* setCookie("token", response.data.user);
@@ -54,12 +54,12 @@ const Signup = () => {
             <div>
               <input
                 type="text"
-                id="name"
+                id="userName"
                 className="w-full p-2 text-primary bg-gray-100 shadow-md border rounded-full outline-none text-sm transition duration-150 ease-in-out mb-4"
-                name="name"
+                name="userName"
                 required={true}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Name"
+                onChange={(e) => setuserName(e.target.value)}
+                placeholder="Username"
               />
             </div>
             <div>
