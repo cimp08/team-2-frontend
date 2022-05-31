@@ -27,9 +27,12 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put("http://localhost:5000/api/v1/users", {
-        formData,
-      });
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/v1/users`,
+        {
+          formData,
+        }
+      );
       const success = response.status === 200;
       if (success) navigate("/swipe");
     } catch (err) {

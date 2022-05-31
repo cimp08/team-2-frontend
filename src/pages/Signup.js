@@ -28,7 +28,7 @@ const Signup = () => {
       console.log(userName, email, password);
 
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/register",
+        `${process.env.REACT_APP_API_URL}/api/v1/auth/register`,
         { email, userName, password }
       );
 

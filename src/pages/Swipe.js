@@ -26,7 +26,7 @@ const Swipe = () => {
   const getUser = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/users/user",
+        `${process.env.REACT_APP_API_URL}/api/v1/users/user`,
         {
           params: { userId },
         }
@@ -40,7 +40,7 @@ const Swipe = () => {
   const getGenderedUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/users/gender-users",
+        `${process.env.REACT_APP_API_URL}/api/v1/users/gender-users`,
         {
           params: { gender: user?.genderInterest },
         }
@@ -63,10 +63,13 @@ const Swipe = () => {
 
   const updateMatches = async (matchedUserId) => {
     try {
-      await axios.put("http://localhost:5000/api/v1/users/addMatch", {
-        userId,
-        matchedUserId,
-      });
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/v1/users/add-match`,
+        {
+          userId,
+          matchedUserId,
+        }
+      );
       getUser();
     } catch (error) {
       console.log(error);
