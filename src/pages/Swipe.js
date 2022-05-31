@@ -61,14 +61,39 @@ const Swipe = () => {
     }
   }, [user]);
 
-  const swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
+  const updateMatches = async (matchedUserId) => {
+    try {
+      await axios.put("http://localhost:5000/api/v1/users/addMatch", {
+        userId,
+        matchedUserId,
+      });
+      getUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //console.log(user);
+
+  const swiped = (direction, swipedUserId) => {
+    if (direction === "right") {
+      //console.log(swipedUserId);
+      updateMatches(swipedUserId);
+    }
     setLastDirection(direction);
   };
 
   const outOfFrame = (name) => {
     console.log(name + " left the screen!");
   };
+  const matchedUserIds = user?.matches
+    .map(({ userId }) => userId)
+    .concat(userId);
+
+  const filteredGenderedUsers = genderedUsers?.filter(
+    (genderedUser) => !matchedUserIds.includes(genderedUser._id)
+  );
+  console.log(filteredGenderedUsers);
 
   return (
     <>
@@ -80,12 +105,12 @@ const Swipe = () => {
           <div className="swipe_cards_buttons flex flex-col">
             <div className="flex flex-col justify-center content-center pb-14">
               <div className="w-72 h-96">
-                {genderedUsers &&
-                  genderedUsers?.map((user) => (
+                {filteredGenderedUsers &&
+                  filteredGenderedUsers?.map((user) => (
                     <TinderCard
                       className="swipe absolute"
                       key={user.dogName}
-                      onSwipe={(dir) => swiped(dir, user.dogName)}
+                      onSwipe={(dir) => swiped(dir, user._id)}
                       onCardLeftScreen={() => outOfFrame(user.dogName)}
                     >
                       <div
