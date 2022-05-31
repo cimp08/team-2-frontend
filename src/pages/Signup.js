@@ -32,11 +32,12 @@ const Signup = () => {
         { email, userName, password }
       );
 
-      /* setCookie("token", response.data.user);
-      setCookie("userId", response.data.user.userId); */
+      console.log(response);
+
+      setCookie("userId", response.data._id);
 
       const success = response.status === 201;
-      if (success) navigate("/createprofile");
+      if (success) navigate("/profile");
       window.location.reload();
     } catch (error) {
       setError(error.response.data.msg);
