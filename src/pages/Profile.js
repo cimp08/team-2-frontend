@@ -5,6 +5,8 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Profile.css";
+import FemaleRoundedIcon from "@mui/icons-material/FemaleRounded";
+import MaleRoundedIcon from "@mui/icons-material/MaleRounded";
 
 const Profile = () => {
   const [cookies, setCookie, removeCookie] = useCookies("user");
@@ -97,7 +99,9 @@ const Profile = () => {
                 onChange={handleChange}
                 checked={formData.gender === "he"}
               />
-              <label htmlFor="man-gender">He</label>
+              <label htmlFor="man-gender">
+                <MaleRoundedIcon></MaleRoundedIcon>
+              </label>
               <input
                 id="female-gender"
                 type="radio"
@@ -106,7 +110,9 @@ const Profile = () => {
                 onChange={handleChange}
                 checked={formData.gender === "she"}
               />
-              <label htmlFor="female-gender">She</label>
+              <label htmlFor="female-gender">
+                <FemaleRoundedIcon></FemaleRoundedIcon>
+              </label>
             </div>
             <label>Show Me</label>
             <div className="multiple-input-container">
@@ -118,7 +124,9 @@ const Profile = () => {
                 onChange={handleChange}
                 checked={formData.genderInterest === "he"}
               />
-              <label htmlFor="man-gender-interest">He</label>
+              <label htmlFor="man-gender-interest">
+                <MaleRoundedIcon></MaleRoundedIcon>
+              </label>
               <input
                 id="female-gender-interest"
                 type="radio"
@@ -127,7 +135,9 @@ const Profile = () => {
                 onChange={handleChange}
                 checked={formData.genderInterest === "she"}
               />
-              <label htmlFor="female-gender-interest">She</label>
+              <label htmlFor="female-gender-interest">
+                <FemaleRoundedIcon></FemaleRoundedIcon>
+              </label>
               <input
                 id="everyone-gender-interest"
                 type="radio"
