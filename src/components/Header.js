@@ -51,8 +51,8 @@ const Navbar = ({ menuOpen, setMenuOpen, authUser, logout }) => (
         <nav className="hidden md:block">
           <ul className="flex space-x-10">
             <li>
-              <Link to="/createprofile">
-                <button className="navbar_links">Create Profile</button>
+              <Link to="/profile">
+                <button className="navbar_links">Profile</button>
               </Link>
             </li>
             <li>
