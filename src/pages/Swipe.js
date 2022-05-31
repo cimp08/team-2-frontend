@@ -13,58 +13,50 @@ import "./Swipe.css";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 const Swipe = () => {
-  /* const dogs = [
-    {
-      name: "Cassy",
-      age: "5 years",
-      breed: "Bulldog",
-      gender: "female",
-      about: "He likes to hunt cats all day.",
-      url: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      name: "Charlie",
-      age: "2 years",
-      breed: "Labrador",
-      gender: "female",
-      about: "He likes to eat vegetables all day.",
-      url: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-    },
-    {
-      name: "Max",
-      age: "9 years",
-      breed: "French bulldog",
-      gender: "male",
-      about: "He likes to sleep all day.",
-      url: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    },
-  ]; */
-
   const [user, setUser] = useState(null);
-  const [users, setUsers] = useState(null);
   const [genderedUsers, setGenderedUsers] = useState(null);
   const [lastDirection, setLastDirection] = useState();
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const userId = cookies.userId;
 
-
   const getUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/v1/users/${userId}`
+        "http://localhost:5000/api/v1/users/user",
+        {
+          params: { userId },
+        }
       );
       setUser(response.data);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getGenderedUsers = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/users/gender-users",
+        {
+          params: { gender: user?.genderInterest },
+        }
+      );
+      setGenderedUsers(response.data);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   useEffect(() => {
     getUser();
   }, []);
-  console.log(user);
-  
+
+  useEffect(() => {
+    if (user) {
+      getGenderedUsers();
+    }
+  }, [user]);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
@@ -73,8 +65,7 @@ const Swipe = () => {
 
   const outOfFrame = (name) => {
     console.log(name + " left the screen!");
-  }; 
-
+  };
 
   return (
     <>
@@ -86,36 +77,37 @@ const Swipe = () => {
           <div className="swipe_cards_buttons flex flex-col">
             <div className="flex flex-col justify-center content-center pb-14">
               <div className="w-72 h-96">
-                {users
-                  ? users.map((user) => (
-                      <TinderCard
-                        className="swipe absolute"
-                        key={user.dogName}
-                        onSwipe={(dir) => swiped(dir, user.dogName)}
-                        onCardLeftScreen={() => outOfFrame(user.dogName)}
+                {genderedUsers &&
+                  genderedUsers?.map((user) => (
+                    <TinderCard
+                      className="swipe absolute"
+                      key={user.dogName}
+                      onSwipe={(dir) => swiped(dir, user.dogName)}
+                      onCardLeftScreen={() => outOfFrame(user.dogName)}
+                    >
+                      <div
+                        style={{ backgroundImage: `url(${user.url})` }}
+                        className="w-72 h-96 shadow-xl bg-cover bg-center rounded-3xl"
                       >
-                        <div
-                          style={{ backgroundImage: `url(${user.url})` }}
-                          className="w-72 h-96 shadow-xl bg-cover bg-center rounded-3xl"
-                        >
-                          <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 h-28 p-4 rounded-3xl absolute text-xs shadow-2xl">
-                            <p className="text-sm font-semibold">{user.dogName}</p>
-                            <List className="list-none">
-                              <li>
-                                <p>{user.age}</p>
-                              </li>
-                              <li>
-                                <p>{user.breed}</p>
-                              </li>
-                              <li>
-                                <p>{user.about}</p>
-                              </li>
-                            </List>
-                          </div>
+                        <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 h-28 p-4 rounded-3xl absolute text-xs shadow-2xl">
+                          <p className="text-sm font-semibold">
+                            {user.dogName}
+                          </p>
+                          <List className="list-none">
+                            <li>
+                              <p>{user.age} year</p>
+                            </li>
+                            <li>
+                              <p>{user.breed}</p>
+                            </li>
+                            <li>
+                              <p className="mt-3">{user.about}</p>
+                            </li>
+                          </List>
                         </div>
-                      </TinderCard>
-                    ))
-                  : null}
+                      </div>
+                    </TinderCard>
+                  ))}
                 {/* <div className="swipe_info absolute">
 					{lastDirection ? <p>You swiped {lastDirection}</p> : <p></p>}
 				</div> */}
