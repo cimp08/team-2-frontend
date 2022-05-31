@@ -4,10 +4,10 @@ import Header from "../components/Header";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./CreateProfile.css";
+import "./Profile.css";
 
-const CreateProfile = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(null);
+const Profile = () => {
+  const [cookies, setCookie, removeCookie] = useCookies("user");
   const [formData, setFormData] = useState({
     userId: cookies.userId,
     matches: [],
@@ -15,7 +15,7 @@ const CreateProfile = () => {
     breed: "",
     gender: "he",
     genderInterest: "she",
-    age: 5,
+    age: "",
     about: "",
     url: "",
   });
@@ -23,13 +23,12 @@ const CreateProfile = () => {
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    console.log("submitted");
     e.preventDefault();
     try {
       const response = await axios.put("http://localhost:5000/api/v1/users", {
-        formData
+        formData,
       });
-      const success = response.status === 201;
+      const success = response.status === 200;
       if (success) navigate("/swipe");
     } catch (err) {
       console.log(err);
@@ -179,4 +178,4 @@ const CreateProfile = () => {
   );
 };
 
-export default CreateProfile;
+export default Profile;

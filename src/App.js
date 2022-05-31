@@ -5,7 +5,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import "./App.css";
 import Swipe from "./pages/Swipe";
-import CreateProfile from "./pages/CreateProfile";
+import Profile from "./pages/Profile";
 import Chat from "./pages/Chat";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       {authUser && <Route path="/swipe" element={<Swipe />} />}
-      {authUser && <Route path="/createprofile" element={<CreateProfile />} />}
+      {authUser && <Route path="/profile" element={<Profile />} />}
       {authUser && <Route path="/chat" element={<Chat />} />}
     </Routes>
   );
