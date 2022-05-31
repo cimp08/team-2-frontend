@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useCookies } from "react-cookie";
@@ -7,11 +7,17 @@ import axios from "axios";
 import "./Profile.css";
 import FemaleRoundedIcon from "@mui/icons-material/FemaleRounded";
 import MaleRoundedIcon from "@mui/icons-material/MaleRounded";
+import { YoutubeSearchedFor } from "@mui/icons-material";
 
 const Profile = () => {
   const [cookies, setCookie, removeCookie] = useCookies("user");
+  const [user, setUser] = useState(null);
+
+  let navigate = useNavigate();
+  const userId = cookies.userId;
+
   const [formData, setFormData] = useState({
-    userId: cookies.userId,
+    userId: userId,
     matches: [],
     dogName: "",
     breed: "",
@@ -22,7 +28,43 @@ const Profile = () => {
     url: "",
   });
 
-  let navigate = useNavigate();
+  const getUser = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/v1/users/user`,
+        {
+          params: { userId },
+        }
+      );
+      setUser(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const setUserFormData = () => {
+    setFormData({
+      userId: userId,
+      matches: [],
+      dogName: user.dogName,
+      breed: user.breed,
+      gender: user.gender,
+      genderInterest: user.genderInterest,
+      age: user.age,
+      about: user.about,
+      url: user.url,
+    });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      setUserFormData();
+    }
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,9 +99,7 @@ const Profile = () => {
     <>
       <Header />
       <div className="onboarding bg-white w-3/4 rounded-3xl  shadow-2xl py-10 px-2 text-center">
-        <h1 className="text-5xl font-normal mt-4 mb-10">
-          Create Doggy Profile
-        </h1>
+        <h1 className="text-5xl font-normal mt-4 mb-10">Doggy Profile</h1>
         <form onSubmit={handleSubmit}>
           <section>
             <label htmlFor="dogName">Dog Name</label>
@@ -171,6 +211,7 @@ const Profile = () => {
               type="url"
               name="url"
               id="url"
+              value={formData.url}
               onChange={handleChange}
               placeholder="Url of your photo"
               required={true}
@@ -183,7 +224,7 @@ const Profile = () => {
           </section>
 
           <section>
-            <input className="item" type="submit" />
+            <input className="item" type="submit" value="Save Profile" />
           </section>
         </form>
       </div>
