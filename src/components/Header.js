@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -11,12 +12,20 @@ const Header = () => {
 
   let navigate = useNavigate();
 
-  const logout = () => {
-   removeCookie("userId", cookies.userId);
-    //removeCookie("token", cookies.token); 
+  const logout = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/auth/logout"
+      );
+      console.log(response);
+      removeCookie("userId", cookies.userId);
 
-    navigate("/");
-    window.location.reload();
+      const success = response.status === 200;
+      if (success) navigate("/");
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
