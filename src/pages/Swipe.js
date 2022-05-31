@@ -26,7 +26,7 @@ const Swipe = () => {
   const getUser = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/users/user",
+        `${process.env.REACT_APP_API_URL}/api/v1/users/user`,
         {
           params: { userId },
         }
@@ -40,7 +40,7 @@ const Swipe = () => {
   const getGenderedUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/users/gender-users",
+        `${process.env.REACT_APP_API_URL}/api/v1/users/gender-users`,
         {
           params: { gender: user?.genderInterest },
         }
@@ -61,13 +61,45 @@ const Swipe = () => {
     }
   }, [user]);
 
-  const swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
+  const updateMatches = async (matchedUserId) => {
+    try {
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/v1/users/add-match`,
+        {
+          userId,
+          matchedUserId,
+        }
+      );
+      getUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //console.log(user);
+
+  const swiped = (direction, swipedUserId) => {
+    if (direction === "right") {
+      //console.log(swipedUserId);
+      updateMatches(swipedUserId);
+    }
     setLastDirection(direction);
   };
 
   const outOfFrame = (name) => {
     console.log(name + " left the screen!");
+  };
+  const matchedUserIds = user?.matches
+    .map(({ userId }) => userId)
+    .concat(userId);
+
+  const filteredGenderedUsers = genderedUsers?.filter(
+    (genderedUser) => !matchedUserIds.includes(genderedUser._id)
+  );
+  console.log(filteredGenderedUsers);
+
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   return (
@@ -80,12 +112,12 @@ const Swipe = () => {
           <div className="swipe_cards_buttons flex flex-col">
             <div className="flex flex-col justify-center content-center pb-14">
               <div className="w-72 h-96">
-                {genderedUsers &&
-                  genderedUsers?.map((user) => (
+                {filteredGenderedUsers &&
+                  filteredGenderedUsers?.map((user) => (
                     <TinderCard
                       className="swipe absolute"
                       key={user.dogName}
-                      onSwipe={(dir) => swiped(dir, user.dogName)}
+                      onSwipe={(dir) => swiped(dir, user._id)}
                       onCardLeftScreen={() => outOfFrame(user.dogName)}
                     >
                       <div
@@ -94,9 +126,15 @@ const Swipe = () => {
                       >
                         <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 p-4 rounded-3xl absolute text-xs shadow-2xl">
                           <div className="flex justify-between">
-                            <p className="text-lg font-semibold">
-                              {user.dogName}
-                            </p>
+                            <div className="flex-col w-full">
+                              <p className="text-lg font-semibold">
+                                {capitalizeFirstLetter(user.dogName)},{" "}
+                                {user.age} years
+                              </p>
+                              <div className="max-w-max border-b  border-gray-400">
+                                <p>{capitalizeFirstLetter(user.breed)} </p>
+                              </div>
+                            </div>
                             {user.gender === "she" ? (
                               <FemaleRoundedIcon></FemaleRoundedIcon>
                             ) : (
@@ -106,13 +144,7 @@ const Swipe = () => {
 
                           <List className="list-none">
                             <li>
-                              <p>{user.age} year</p>
-                            </li>
-                            <li>
-                              <p>{user.breed}</p>
-                            </li>
-                            <li>
-                              <p className="mt-3 mb-2">{user.about}</p>
+                              <p className="mt-1 mb-1">{user.about}</p>
                             </li>
                           </List>
                         </div>

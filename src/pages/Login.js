@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/login",
+        `${process.env.REACT_APP_API_URL}/api/v1/auth/login`,
         {
           email,
           password,
@@ -30,8 +30,8 @@ const Login = () => {
       setCookie("userId", response.data.user._id);
 
       const success = response.status === 200;
-       if (success) navigate("/swipe");
-      window.location.reload();  
+      if (success) navigate("/swipe");
+      window.location.reload();
     } catch (error) {
       setError(error.response.data.msg);
       console.log(error);

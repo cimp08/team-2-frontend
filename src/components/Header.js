@@ -15,7 +15,7 @@ const Header = () => {
   const logout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/auth/logout"
+        `${process.env.REACT_APP_API_URL}/api/v1/auth/logout`
       );
       console.log(response);
       removeCookie("userId", cookies.userId);
