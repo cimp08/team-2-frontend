@@ -12,6 +12,9 @@ import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import "./Swipe.css";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import FemaleRoundedIcon from "@mui/icons-material/FemaleRounded";
+import MaleRoundedIcon from "@mui/icons-material/MaleRounded";
+
 const Swipe = () => {
   const [user, setUser] = useState(null);
   const [genderedUsers, setGenderedUsers] = useState(null);
@@ -89,10 +92,18 @@ const Swipe = () => {
                         style={{ backgroundImage: `url(${user.url})` }}
                         className="w-72 h-96 shadow-xl bg-cover bg-center rounded-3xl"
                       >
-                        <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 h-28 p-4 rounded-3xl absolute text-xs shadow-2xl">
-                          <p className="text-sm font-semibold">
-                            {user.dogName}
-                          </p>
+                        <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 p-4 rounded-3xl absolute text-xs shadow-2xl">
+                          <div className="flex justify-between">
+                            <p className="text-lg font-semibold">
+                              {user.dogName}
+                            </p>
+                            {user.gender === "she" ? (
+                              <FemaleRoundedIcon></FemaleRoundedIcon>
+                            ) : (
+                              <MaleRoundedIcon></MaleRoundedIcon>
+                            )}
+                          </div>
+
                           <List className="list-none">
                             <li>
                               <p>{user.age} year</p>
@@ -101,7 +112,7 @@ const Swipe = () => {
                               <p>{user.breed}</p>
                             </li>
                             <li>
-                              <p className="mt-3">{user.about}</p>
+                              <p className="mt-3 mb-2">{user.about}</p>
                             </li>
                           </List>
                         </div>

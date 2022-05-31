@@ -1,18 +1,28 @@
 import React from "react";
 import "./Home.css";
+import { useCookies } from "react-cookie";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+  const authUser = cookies.userId;
+
   return (
     <div>
       <Header />
       <div className="home text-center">
         <h1 className="home-text">Swipe Right</h1>
-        <Link to="/signup">
-          <button className="sign-button">Sign up</button>
-        </Link>
+        {authUser ? (
+          <Link to="/swipe">
+            <button className="sign-button">Find your match!</button>
+          </Link>
+        ) : (
+          <Link to="/signup">
+            <button className="sign-button">Sign up</button>
+          </Link>
+        )}
       </div>
       <div className="flex justify-end">
         <div className="doggymatch-dog"></div>
