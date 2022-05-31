@@ -151,6 +151,7 @@ const Profile = () => {
 
             <label htmlFor="about">About me</label>
             <input
+              maxLength="80"
               id="about"
               type="textarea"
               name="about"

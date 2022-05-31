@@ -95,6 +95,10 @@ const Swipe = () => {
   );
   console.log(filteredGenderedUsers);
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <>
       <Header />
@@ -119,9 +123,15 @@ const Swipe = () => {
                       >
                         <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 p-4 rounded-3xl absolute text-xs shadow-2xl">
                           <div className="flex justify-between">
-                            <p className="text-lg font-semibold">
-                              {user.dogName}
-                            </p>
+                            <div className="flex-col w-full">
+                              <p className="text-lg font-semibold">
+                                {capitalizeFirstLetter(user.dogName)},{" "}
+                                {user.age} years
+                              </p>
+                              <div className="max-w-max border-b  border-gray-400">
+                                <p>{capitalizeFirstLetter(user.breed)} </p>
+                              </div>
+                            </div>
                             {user.gender === "she" ? (
                               <FemaleRoundedIcon></FemaleRoundedIcon>
                             ) : (
@@ -131,13 +141,7 @@ const Swipe = () => {
 
                           <List className="list-none">
                             <li>
-                              <p>{user.age} year</p>
-                            </li>
-                            <li>
-                              <p>{user.breed}</p>
-                            </li>
-                            <li>
-                              <p className="mt-3 mb-2">{user.about}</p>
+                              <p className="mt-1 mb-1">{user.about}</p>
                             </li>
                           </List>
                         </div>
