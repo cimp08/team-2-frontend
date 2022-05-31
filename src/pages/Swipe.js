@@ -103,8 +103,9 @@ const Swipe = () => {
                                 {capitalizeFirstLetter(user.dogName)},{" "}
                                 {user.age} years
                               </p>
-                              <p>{capitalizeFirstLetter(user.breed)} </p>
-                              <div className="w-1/2 border-t border-dotted border-gray-400"></div>
+                              <div className="max-w-max border-b  border-gray-400">
+                                <p>{capitalizeFirstLetter(user.breed)} </p>
+                              </div>
                             </div>
                             {user.gender === "she" ? (
                               <FemaleRoundedIcon></FemaleRoundedIcon>
