@@ -33,7 +33,7 @@ const Login = () => {
       if (success) navigate("/swipe");
       window.location.reload();
     } catch (error) {
-      setError(error.response.data.msg);
+      setError(error.response.data);
       console.log(error);
     }
   };
