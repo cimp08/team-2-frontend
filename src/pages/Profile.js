@@ -193,7 +193,8 @@ const Profile = () => {
             </div>
 
             <label htmlFor="about">About me</label>
-            <input
+            <textarea
+              rows="5"
               maxLength="80"
               id="about"
               type="textarea"
