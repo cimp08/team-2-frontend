@@ -58,7 +58,7 @@ const Profile = () => {
       <Header />
       <div className="onboarding bg-white w-3/4 rounded-3xl  shadow-2xl py-10 px-2 text-center">
         <h1 className="text-5xl font-normal mt-4 mb-10">
-          Create Doggy Profile
+          Doggy Profile
         </h1>
         <form onSubmit={handleSubmit}>
           <section>
@@ -153,7 +153,8 @@ const Profile = () => {
             </div>
 
             <label htmlFor="about">About me</label>
-            <input
+            <textarea
+              rows="5"
               maxLength="80"
               id="about"
               type="textarea"
@@ -183,7 +184,7 @@ const Profile = () => {
           </section>
 
           <section>
-            <input className="item" type="submit" />
+            <input className="item" type="submit" value="Send" />
           </section>
         </form>
       </div>

@@ -44,4 +44,8 @@
     font-size: 25px;
     margin: 0;
   }
+  .log-button {
+  width: 100px;
+  height: 35px;
+}
 }
