@@ -28,15 +28,19 @@ const Chat = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
   return (
     <>
-      <Header />
-      <div className="flex justify-center m-20">
-        <SwipeHeader />
-      </div>
-      <ChatContainer user={user} />
+      {user && (
+        <>
+          <Header />
+          <div className="flex justify-center m-20">
+            <SwipeHeader />
+          </div>
+          <ChatContainer user={user} />
+        </>
+      )}
     </>
   );
 };
