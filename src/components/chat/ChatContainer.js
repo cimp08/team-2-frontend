@@ -2,8 +2,12 @@ import ChatHeader from "./ChatHeader";
 import MatchesDisplay from "./MatchesDisplay";
 import ChatDisplay from "./ChatDisplay";
 import "./ChatContainer.css";
+import { useEffect } from "react";
 
-const ChatContainer = () => {
+const ChatContainer = ({ user }) => {
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
   return (
     <>
       <div className="chat-container">
@@ -13,7 +17,7 @@ const ChatContainer = () => {
             <button className="option">Chat</button>
           </div>
           <ChatHeader />
-          <MatchesDisplay />
+          {user && <MatchesDisplay matches={user.matches} />}
           <ChatDisplay />
         </div>
       </div>
