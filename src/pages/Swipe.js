@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import SwipeHeader from "../components/SwipeHeader";
 import TinderCard from "react-tinder-card";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { List } from "@mui/material";
 import { IconButton } from "@mui/material";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
@@ -22,6 +23,7 @@ const Swipe = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const userId = cookies.userId;
+  let navigate = useNavigate();
 
   const getUser = async () => {
     try {
@@ -57,6 +59,12 @@ const Swipe = () => {
 
   useEffect(() => {
     if (user) {
+      // If user have not created a profile it can not access the swipe
+      if (!user.dogName) {
+        navigate("/profile");
+        window.location.reload();
+      }
+
       getGenderedUsers();
     }
   }, [user]);
