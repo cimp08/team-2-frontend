@@ -7,7 +7,6 @@ import axios from "axios";
 import "./Profile.css";
 import FemaleRoundedIcon from "@mui/icons-material/FemaleRounded";
 import MaleRoundedIcon from "@mui/icons-material/MaleRounded";
-import { YoutubeSearchedFor } from "@mui/icons-material";
 
 const Profile = () => {
   const [cookies, setCookie, removeCookie] = useCookies("user");
