@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+import "./MatchesDisplay.css";
 
 const MatchesDisplay = ({ matches, setClickedUser }) => {
   const [matchedProfiles, setMatchedProfiles] = useState(null);
@@ -25,20 +26,23 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
 
   useEffect(() => {
     getMatches();
+    console.log();
   }, []);
 
   return (
-    <div>
+    <div className="flex-col content-center">
       {matchedProfiles?.map((match, _index) => (
-        <div
-          key={_index}
-          className="match-card"
-          onClick={() => setClickedUser(match)}
-        >
-          <div className="img-container">
-            <img src={match?.url} alt={match?.dogName + "profile"} />
+        <div key={_index} className="">
+          <div className="flex content-between container">
+            <div className="img-container">
+              <img
+                src={match?.url}
+                alt={match?.dogName + "profile"}
+                onClick={() => setClickedUser(match)}
+              />
+            </div>
+            <h3 onClick={() => setClickedUser(match)}>{match?.dogName}</h3>
           </div>
-          <h3>{match?.dogName}</h3>
         </div>
       ))}
     </div>
