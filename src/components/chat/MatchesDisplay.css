@@ -5,6 +5,7 @@
     overflow: hidden;
     margin: 10px;
     margin-left: 20px;
+    cursor:pointer;
 }
 
 .img-container img{

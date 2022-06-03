@@ -76,8 +76,6 @@ const Swipe = () => {
     }
   };
 
-  //console.log(user);
-
   const swiped = (direction, swipedUserId) => {
     if (direction === "right") {
       //console.log(swipedUserId);
@@ -96,7 +94,6 @@ const Swipe = () => {
   const filteredGenderedUsers = genderedUsers?.filter(
     (genderedUser) => !matchedUserIds.includes(genderedUser._id)
   );
-  console.log(filteredGenderedUsers);
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
