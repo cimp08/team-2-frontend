@@ -23,7 +23,8 @@ const Login = () => {
         {
           email,
           password,
-        }
+        },
+        { withCredentials: true }
       );
       console.log(response);
       //setCookie("token", response.data.user);
