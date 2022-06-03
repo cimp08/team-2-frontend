@@ -31,9 +31,10 @@ const Profile = () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/v1/users/user`,
-        {
-          params: { userId },
-        }
+        // {
+        //   params: { userId },
+        // }
+        { withCredentials: true }
       );
       setUser(response.data);
     } catch (err) {
