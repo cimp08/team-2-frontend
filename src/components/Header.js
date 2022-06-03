@@ -61,6 +61,11 @@ const Navbar = ({ menuOpen, setMenuOpen, authUser, logout }) => (
                 <button className="navbar_links">Swipe</button>
               </Link>
             </li>
+            <li>
+              <Link to="/chat">
+                <button className="navbar_links">Chat</button>
+              </Link>
+            </li>
           </ul>
         </nav>
       )}
