@@ -84,7 +84,12 @@ const ChatDisplay = ({ user, clickedUser }) => {
           </div>
         ))}
       </div>
-      <ChatInput />
+      <ChatInput
+        user={user}
+        clickedUser={clickedUser}
+        getUsersMessages={getUsersMessages}
+        getClickedUsersMessages={getClickedUsersMessages}
+      />
     </div>
   );
 };
