@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Home from "./pages/Home";
+import Protected from "./pages/Protected";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import "./App.css";
@@ -20,6 +21,7 @@ function App() {
       {authUser && <Route path="/swipe" element={<Swipe />} />}
       {authUser && <Route path="/profile" element={<Profile />} />}
       {authUser && <Route path="/chat" element={<Chat />} />}
+      {authUser && <Route path="/protected" element={<Protected />} />}
     </Routes>
   );
 }

@@ -40,7 +40,7 @@ const Signup = () => {
       if (success) navigate("/profile");
       window.location.reload();
     } catch (error) {
-      setError(error.response.data.msg);
+      setError(error.response.data);
       console.log(error);
     }
   };
@@ -49,7 +49,7 @@ const Signup = () => {
     <>
       <Header />
       <section className="grow my-8">
-        <div className="w-full max-w-md m-auto bg-white rounded-3xl border border-primaryBorder shadow-2xl py-10 px-10">
+        <div className="w-11/12 max-w-md m-auto bg-white rounded-3xl border border-primaryBorder shadow-2xl py-10 px-10">
           <h1 className="text-5xl font-normal mt-4 mb-10">Sign up</h1>
           <form onSubmit={handleSubmit}>
             <div>
@@ -111,7 +111,7 @@ const Signup = () => {
               <h2 className="text-md font-normal mt-4">
                 Already have an account?
               </h2>
-              <h2 className="text-md font-bold ml-2 mt-4">
+              <h2 className="text-md font-bold ml-1 mt-4">
                 <Link to="/login">Log in</Link>
               </h2>
             </div>
