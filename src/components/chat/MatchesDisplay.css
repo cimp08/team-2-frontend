@@ -1,0 +1,17 @@
+.img-container {
+    height: auto;
+    width: 100px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px;
+    margin-left: 20px;
+    cursor:pointer;
+}
+
+.img-container img{
+    width:100%;
+}
+
+.container{
+    margin-left: 20px;
+}
