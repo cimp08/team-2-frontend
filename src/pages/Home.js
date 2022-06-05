@@ -32,22 +32,22 @@ const Home = () => {
         <div className="testimonials-card">
           <h3 className="testimonials-heading">Sofie Eriksson</h3>
           <p className="testimonials-text">
-            “Jag hittade den perfekta partnern till Fluffy via Doggymatch! I
-            sommar kommer våra valpar”
+            “I found the perfect partner for Fluffy via Doggymatch! This summer
+            we get our puppies!”
           </p>
         </div>
         <div className="testimonials-card">
           <h3 className="testimonials-heading">Magdalena Grip</h3>
           <p className="testimonials-text">
-            “Jag hittade den perfekta partnern till Fluffy via Doggymatch! I
-            sommar kommer våra valpar”
+            “I was literally online five mins and kicked off but before I caught
+            sight of a dog and we clicked right away”
           </p>
         </div>
         <div className="testimonials-card">
           <h3 className="testimonials-heading">Simon Andersson</h3>
           <p className="testimonials-text">
-            “Jag hittade den perfekta partnern till Fluffy via Doggymatch! I
-            sommar kommer våra valpar”
+            “I have been using doggymatch for quite some time and I really enjoy
+            it! Cool app”
           </p>
         </div>
       </section>
