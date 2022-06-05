@@ -24,7 +24,15 @@ const Login = () => {
           email,
           password,
         },
-        { withCredentials: true }
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          mode: "cors",
+          credentials: "include",
+          withCredentials: true,
+        }
       );
       console.log(response);
       //setCookie("token", response.data.user);
