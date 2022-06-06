@@ -17,8 +17,8 @@ body {
   background-size: cover;
 }
 
-#root {
-  min-height: 100vh;
+ #root {
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
-}
+} 

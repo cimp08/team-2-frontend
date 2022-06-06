@@ -49,8 +49,8 @@ const Navbar = ({ menuOpen, setMenuOpen, authUser, logout }) => (
         <p className="logo no-underline mr-10">DoggyMatch</p>
       </Link>
       {authUser && (
-        <nav className="hidden md:block">
-          <ul className="flex space-x-10">
+        <nav className="hidden md:block ">
+          <ul className="flex space-x-10 ">
             <li>
               <Link to="/profile">
                 <button className="navbar_links">Profile</button>
