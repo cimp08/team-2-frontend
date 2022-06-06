@@ -37,13 +37,13 @@ const Header = () => {
         authUser={authUser}
         logout={logout}
       />
-      {menuOpen && <MobileMenu>{MobileMenu}</MobileMenu>}
+      {menuOpen && <MobileMenu authUser={authUser}>{MobileMenu}</MobileMenu>}
     </div>
   );
 };
 
 const Navbar = ({ menuOpen, setMenuOpen, authUser, logout }) => (
-  <div className="flex items-center p-4 justify-between mb-5">
+  <div className="flex items-center p-4 justify-between">
     <div className="flex items-center">
       <Link to="/">
         <p className="logo no-underline mr-10">DoggyMatch</p>
@@ -93,30 +93,27 @@ const Navbar = ({ menuOpen, setMenuOpen, authUser, logout }) => (
   </div>
 );
 
-const MobileMenu = () => (
+const MobileMenu = ({ authUser }) => (
   <nav className="p-4 flex flex-col md:hidden mb-5">
-    <ul className="space-y-3">
-      <li>
-        <Link to="/#">
-          <button className="navbar_links">Products</button>
-        </Link>
-      </li>
-      <li>
-        <Link to="/#">
-          <button className="navbar_links">Find Out</button>
-        </Link>
-      </li>
-      <li>
-        <Link to="/#">
-          <button className="navbar_links">Security</button>
-        </Link>
-      </li>
-      <li>
-        <Link to="/#">
-          <button className="navbar_links">Support</button>
-        </Link>
-      </li>
-    </ul>
+    {authUser && (
+      <ul className="space-y-3">
+        <li>
+          <Link to="/profile">
+            <button className="navbar_links">Profile</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/swipe">
+            <button className="navbar_links">Swipe</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/chat">
+            <button className="navbar_links">Chat</button>
+          </Link>
+        </li>
+      </ul>
+    )}
   </nav>
 );
 
