@@ -45,7 +45,7 @@ const Profile = () => {
   const setUserFormData = () => {
     setFormData({
       userId: userId,
-      matches: [],
+      matches: user.matches ? user.matches : [],
       dogName: user.dogName,
       breed: user.breed,
       gender: user.gender,
