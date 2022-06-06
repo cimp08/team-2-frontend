@@ -36,10 +36,12 @@ const Chat = () => {
       {user && (
         <>
           <Header />
-          <div className="flex justify-center m-20">
-            <SwipeHeader />
+          <div className="chat flex justify-around m-20">
+            <div>
+              <SwipeHeader />
+              <ChatContainer user={user} />
+            </div>
           </div>
-          <ChatContainer user={user} />
         </>
       )}
     </>
