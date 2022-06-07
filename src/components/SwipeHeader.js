@@ -31,10 +31,12 @@ const SwipeHeader = () => {
           </IconButton>
         </Link>
       </div>
-      <div>
-        <IconButton className="swipe_icons">
-          <SettingsIcon fontSize="large"></SettingsIcon>
-        </IconButton>
+      <div className="icon md:mb-20">
+        <Link to="/profile">
+          <IconButton className="swipe_icons">
+            <SettingsIcon fontSize="large"></SettingsIcon>
+          </IconButton>
+        </Link>
       </div>
     </div>
   );
