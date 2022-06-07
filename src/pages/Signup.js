@@ -13,7 +13,6 @@ const Signup = () => {
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
-  const [cookies, setCookie, removeCookie] = useCookies(null);
 
   let navigate = useNavigate();
 
@@ -34,10 +33,8 @@ const Signup = () => {
 
       console.log(response);
 
-      setCookie("userId", response.data._id);
-
       const success = response.status === 201;
-      if (success) navigate("/profile");
+      if (success) navigate("/login");
       window.location.reload();
     } catch (error) {
       setError(error.response.data);
