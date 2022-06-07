@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import SwipeHeader from "../components/SwipeHeader";
 import "./Chat.css";
 import ChatContainer from "../components/chat/ChatContainer";
@@ -36,12 +37,15 @@ const Chat = () => {
       {user && (
         <>
           <Header />
-          <div className="flex justify-center m-20">
-            <SwipeHeader />
+          <div className="chat flex justify-around m-20">
+            <div>
+              <SwipeHeader />
+              <ChatContainer user={user} />
+            </div>
           </div>
-          <ChatContainer user={user} />
         </>
       )}
+      <Footer />
     </>
   );
 };
