@@ -10,7 +10,7 @@ const Home = () => {
   const authUser = cookies.userId;
 
   return (
-    <div>
+    <>
       <Header />
       <div className="home text-center">
         <h1 className="home-text">Swipe Right</h1>
@@ -52,7 +52,7 @@ const Home = () => {
         </div>
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 
