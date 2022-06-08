@@ -1,7 +1,11 @@
 .chat-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  width: 100%;
+}
+
+.chat{
+  height:auto
 }
 
 .chat-buttons {
@@ -18,4 +22,12 @@
 
 .option:disabled {
   border-bottom: solid 4px rgb(89, 88, 91);
+}
+
+@media only screen and (max-width: 820px) {
+  .chat {
+    width: 95%;
+  }
+
+
 }

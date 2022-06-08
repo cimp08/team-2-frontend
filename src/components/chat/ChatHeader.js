@@ -1,9 +1,12 @@
 import "./ChatHeader.css";
 
-const ChatHeader = () => {
+const ChatHeader = ({ clickedUser }) => {
+  const name = clickedUser?.dogName;
+  const img = clickedUser?.url;
   return (
-    <div className="chat-header flex-start">
-      {/* <h1>Chat with Bubbles</h1> */}
+    <div className="chat-header">
+      <img className="picture" src={img} />
+      <h1>{name}</h1>
     </div>
   );
 };
