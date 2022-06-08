@@ -68,6 +68,12 @@ It seems that nowadays it is really hard to have a playmate or a walking buddy f
 ### Chating
 
 - You can chat now with your doggy playmate.
+
+## Documentation
+
+- [Prototyping in Figma](https://www.figma.com/file/hEO9VUjNsFZXQOl84DlZQk/DoggyMatch?node-id=0%3A1)
+- [Projects GitHub](https://github.com/cimp08/team-2-frontend/projects)
+
 ## Test
 
 - We used Jest for testing to insert, update and delete a dog name.
