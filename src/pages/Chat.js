@@ -40,6 +40,11 @@ const Chat = () => {
 
           <div>
             <div className="w-full mt-20">
+              {!user.dogName && (
+                <p className="text-center mb-3">
+                  You need to create a profile!
+                </p>
+              )}
               <SwipeHeader />
             </div>
             <ChatContainer user={user} />
