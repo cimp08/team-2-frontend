@@ -24,6 +24,12 @@
   border-radius: 10px;
 }
 
+.textarea-border {
+  padding: 10px;
+  border: solid 2px rgb(144, 144, 144);
+  border-radius: 10px;
+}
+
 .onboarding form input::-webkit-outer-spin-button,
 .onboarding form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -77,11 +83,6 @@
 
 .onboarding form input[type="submit"]:hover {
   border: 2px solid #000000;
-}
-
-.onboarding form input[type="submit"]:active {
-  border: 1px solid #000000;
-  box-shadow: inset 7px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .onboarding form .photo-container img {

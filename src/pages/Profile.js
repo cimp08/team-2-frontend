@@ -196,6 +196,7 @@ const Profile = () => {
             <textarea
               rows="5"
               maxLength="80"
+              className="textarea-border"
               id="about"
               type="textarea"
               name="about"
