@@ -23,6 +23,7 @@ const Swipe = () => {
   const userId = cookies.userId;
   let navigate = useNavigate();
 
+  // Get User
   const getUser = async () => {
     try {
       const response = await axios.get(
@@ -38,6 +39,7 @@ const Swipe = () => {
     }
   };
 
+  // Get all the users that signed user are intrested in
   const getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -70,6 +72,7 @@ const Swipe = () => {
     }
   }, [user]);
 
+  // Update matches
   const updateMatches = async (matchedUserId) => {
     try {
       await axios.put(
@@ -95,10 +98,12 @@ const Swipe = () => {
   const outOfFrame = (name) => {
     console.log(name + " left the screen!");
   };
+
   const matchedUserIds = user?.matches
     .map(({ userId }) => userId)
     .concat(userId);
 
+  // Filter the users thats already liked
   const filteredGenderedUsers = genderedUsers?.filter(
     (genderedUser) => !matchedUserIds.includes(genderedUser._id)
   );
@@ -136,7 +141,7 @@ const Swipe = () => {
                           style={{ backgroundImage: `url(${user.url})` }}
                           className="w-72 h-96 shadow-xl bg-cover bg-center rounded-3xl"
                         >
-                          <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 p-4 rounded-3xl absolute text-xs shadow-2xl">
+                          <div className="info_container md:-ml-28 mt-80 ml-4 bg-white w-64 h-40 p-4 rounded-3xl absolute text-xs shadow-2xl">
                             <div className="flex justify-between">
                               <div className="flex-col w-full">
                                 <p className="text-lg font-semibold">
@@ -156,13 +161,18 @@ const Swipe = () => {
 
                             <List className="list-none">
                               <li>
-                                <p className="mt-1 mb-1">{user.about}</p>
+                                <p className="mt-1 mb-1">
+                                  {user.about.slice(0, 120) + "..."}
+                                </p>
                               </li>
                             </List>
                           </div>
                         </div>
                       </TinderCard>
                     ))}
+                  <p className="runout mt-10 text-center">
+                    You run out of swipes!
+                  </p>
                 </div>
               )}
             </div>
