@@ -7,11 +7,9 @@ import { TailSpin } from "react-loader-spinner";
 const MatchesDisplay = ({ matches, setClickedUser }) => {
   const [matchedProfiles, setMatchedProfiles] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(null);
-
-  const matchedUserIds = matches.map(({ userId }) => userId);
-
   const [loading, setLoading] = useState(false);
 
+  const matchedUserIds = matches.map(({ userId }) => userId);
   const userId = cookies.userId;
 
   const getMatches = async () => {

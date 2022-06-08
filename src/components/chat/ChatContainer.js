@@ -19,7 +19,6 @@ const ChatContainer = ({ user }) => {
               Chat
             </button>
           </div>
-          <ChatHeader />
           {!clickedUser && user && (
             <MatchesDisplay
               setClickedUser={setClickedUser}

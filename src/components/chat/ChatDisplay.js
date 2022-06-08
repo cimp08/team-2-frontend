@@ -2,6 +2,7 @@ import ChatInput from "./ChatInput";
 import "./ChatDisplay.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ChatHeader from "./ChatHeader";
 
 const ChatDisplay = ({ user, clickedUser }) => {
   const userId = user?._id;
@@ -51,6 +52,8 @@ const ChatDisplay = ({ user, clickedUser }) => {
     getClickedUsersMessages();
   }, [usersMessages.length, clickedUsersMessages.length]);
 
+  //Format the messages so both user and matched
+  //users messages are in same array with both name and url for image
   const messages = [];
 
   usersMessages?.forEach((message) => {
@@ -79,6 +82,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
 
   return (
     <div>
+      <ChatHeader clickedUser={clickedUser} />
       <div className="chat-display">
         {descendingOrderMessages.map((message, _index) => (
           <div key={_index}>
@@ -87,10 +91,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
                 {message.img !== "#" && (
                   <div className={message.classname}>
                     <div className="img-container-chat">
-                      <img
-                        src={message.img}
-                        alt={message.dogName + "profile"}
-                      />
+                      <img src={message.img} alt={message.name + "profile"} />
                     </div>
                   </div>
                 )}
