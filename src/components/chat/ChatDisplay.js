@@ -1,8 +1,8 @@
 import ChatInput from "./ChatInput";
-import "./ChatDisplay.css";
-import axios from "axios";
-import { useEffect, useState, useRef } from "react";
 import ChatHeader from "./ChatHeader";
+import axios from "axios";
+import "./ChatDisplay.css";
+import { useEffect, useState, useRef } from "react";
 
 const ChatDisplay = ({ user, clickedUser }) => {
   const userId = user?._id;

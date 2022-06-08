@@ -39,9 +39,12 @@ const Chat = () => {
           <Header />
 
           <div>
-            <SwipeHeader />
+            <div className="w-full mt-20">
+              <SwipeHeader />
+            </div>
             <ChatContainer user={user} />
           </div>
+          <Footer />
         </>
       )}
     </>

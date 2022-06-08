@@ -115,10 +115,11 @@ const Swipe = () => {
   return (
     <>
       <Header />
+      <div className="w-full mt-20">
+        <SwipeHeader />
+      </div>
       <div className="swipe_container flex justify-around m-20">
         <div className="flex flex-col md:flex-row">
-          <SwipeHeader />
-
           <div className="swipe_cards_buttons flex flex-col">
             <div className="flex flex-col justify-center content-center pb-14">
               {loading ? (
