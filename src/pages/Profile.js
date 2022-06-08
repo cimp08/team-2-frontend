@@ -195,7 +195,7 @@ const Profile = () => {
             <label htmlFor="about">About me</label>
             <textarea
               rows="5"
-              maxLength="80"
+              maxLength="120"
               className="textarea-border"
               id="about"
               type="textarea"

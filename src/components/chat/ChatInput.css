@@ -1,6 +1,7 @@
 .chat-input{
     display: flex;
     justify-content: center;
+    margin-top: 5px;
 
 }
 
@@ -8,6 +9,6 @@
     border: solid 1px rgb(154, 152, 152);
     width: 80%;
     margin-right: 10px;
-    height: 4vh;
+    height: 10vh;
     border-radius: 5px;
 }
