@@ -13,6 +13,7 @@ const Signup = () => {
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(null);
 
   let navigate = useNavigate();
@@ -34,11 +35,14 @@ const Signup = () => {
 
       console.log(response);
 
-      setCookie("userId", response.data._id);
-
       const success = response.status === 201;
-      if (success) navigate("/profile");
-      window.location.reload();
+
+      if (success) {
+        setMessage(response.data.msg);
+      }
+
+      /* navigate("/signup");
+      window.location.reload();  */
     } catch (error) {
       setError(error.response.data);
       console.log(error);
@@ -104,6 +108,9 @@ const Signup = () => {
               />
             </div>
             {error && <p className="text-red-500 text-xs mt-4">{error}</p>}
+            {message && (
+              <p className="text-purple-500 text-xs mt-4">{message}</p>
+            )}
           </form>
 
           <div className="w-full border-t border-gray-400 mt-5">
