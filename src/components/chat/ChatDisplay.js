@@ -1,7 +1,7 @@
 import ChatInput from "./ChatInput";
 import "./ChatDisplay.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ChatHeader from "./ChatHeader";
 
 const ChatDisplay = ({ user, clickedUser }) => {
@@ -47,9 +47,16 @@ const ChatDisplay = ({ user, clickedUser }) => {
     }
   };
 
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     getUsersMessages();
     getClickedUsersMessages();
+    scrollToBottom();
   }, [usersMessages.length, clickedUsersMessages.length]);
 
   //Format the messages so both user and matched
@@ -109,6 +116,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
             </div>
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
       <ChatInput
         user={user}
