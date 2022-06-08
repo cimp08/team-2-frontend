@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const SwipeHeader = () => {
   return (
-    <div className="swipe_header flex md:flex-col justify-between pb-12 md:left-28 md:absolute">
+    <div className="swipe_header flex md:flex-col justify-around pb-12 md:left-28 md:absolute">
       <div className="icon md:mb-20">
         <Link to="/">
           <IconButton className="swipe_icons">
