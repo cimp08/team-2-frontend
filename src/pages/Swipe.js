@@ -6,16 +6,13 @@ import TinderCard from "react-tinder-card";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { List } from "@mui/material";
-import { IconButton } from "@mui/material";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
-import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import "./Swipe.css";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import FemaleRoundedIcon from "@mui/icons-material/FemaleRounded";
 import MaleRoundedIcon from "@mui/icons-material/MaleRounded";
 import { TailSpin } from "react-loader-spinner";
+
 const Swipe = () => {
   const [user, setUser] = useState(null);
   const [genderedUsers, setGenderedUsers] = useState(null);
@@ -71,7 +68,6 @@ const Swipe = () => {
 
       getGenderedUsers();
     }
-    
   }, [user]);
 
   const updateMatches = async (matchedUserId) => {
@@ -91,7 +87,6 @@ const Swipe = () => {
 
   const swiped = (direction, swipedUserId) => {
     if (direction === "right") {
-      //console.log(swipedUserId);
       updateMatches(swipedUserId);
     }
     setLastDirection(direction);
@@ -168,23 +163,8 @@ const Swipe = () => {
                         </div>
                       </TinderCard>
                     ))}
-                  {/* <div className="swipe_info absolute">
-					{lastDirection ? <p>You swiped {lastDirection}</p> : <p></p>}
-				</div> */}
                 </div>
               )}
-            </div>
-
-            <div className="swipe_buttons flex items-center justify-between pt-12">
-              <IconButton className="swipe_buttons_left">
-                <CancelOutlinedIcon fontSize="large"></CancelOutlinedIcon>
-              </IconButton>
-              <IconButton className="swipe_buttons_star">
-                <StarBorderIcon fontSize="large"></StarBorderIcon>
-              </IconButton>
-              <IconButton className="swipe_buttons_right">
-                <CheckCircleOutlinedIcon fontSize="large"></CheckCircleOutlinedIcon>
-              </IconButton>
             </div>
           </div>
         </div>
