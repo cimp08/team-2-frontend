@@ -6,10 +6,17 @@ import { useEffect, useState } from "react";
 const ChatDisplay = ({ user, clickedUser }) => {
   const userId = user?._id;
   const clickedUserId = clickedUser?._id;
-  const [usersMessages, setUsersMessages] = useState(null);
-  const [clickedUsersMessages, setClickedUsersMessages] = useState(null);
+  const [usersMessages, setUsersMessages] = useState([
+    { length: 0, timestamp: "2022-02-01T18:28:40+00:00" },
+  ]);
+  const [clickedUsersMessages, setClickedUsersMessages] = useState([
+    {
+      length: 0,
+      timestamp: "2022-01-01T18:28:40+00:00",
+    },
+  ]);
 
-  const getUsersMessages = async (senderId, recipientId) => {
+  const getUsersMessages = async () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/v1/users/messages`,
@@ -42,16 +49,17 @@ const ChatDisplay = ({ user, clickedUser }) => {
   useEffect(() => {
     getUsersMessages();
     getClickedUsersMessages();
-  }, [usersMessages, clickedUsersMessages]);
+  }, [usersMessages.length, clickedUsersMessages.length]);
 
   const messages = [];
 
   usersMessages?.forEach((message) => {
     const formattedMessage = {};
     formattedMessage["name"] = user?.dogName;
-    formattedMessage["img"] = user?.url;
+    formattedMessage["img"] = "#";
     formattedMessage["message"] = message.message;
     formattedMessage["timestamp"] = message.timestamp;
+    formattedMessage["classname"] = "usermessage";
     messages.push(formattedMessage);
   });
 
@@ -61,6 +69,7 @@ const ChatDisplay = ({ user, clickedUser }) => {
     formattedMessage["img"] = clickedUser?.url;
     formattedMessage["message"] = message.message;
     formattedMessage["timestamp"] = message.timestamp;
+    formattedMessage["classname"] = "respondingmessage";
     messages.push(formattedMessage);
   });
 
@@ -74,12 +83,29 @@ const ChatDisplay = ({ user, clickedUser }) => {
         {descendingOrderMessages.map((message, _index) => (
           <div key={_index}>
             <div className="chat-message-header">
-              <div className="img-container">
-                <img src={message.img} alt={message.dogName + "profile"} />
+              <div className={message.classname}>
+                {message.img !== "#" && (
+                  <div className={message.classname}>
+                    <div className="img-container-chat">
+                      <img
+                        src={message.img}
+                        alt={message.dogName + "profile"}
+                      />
+                    </div>
+                  </div>
+                )}
+                <div className="flex-col w-full">
+                  <div className="flex justify-center">
+                    <p className="timestamp">
+                      {new Date(message.timestamp).toString().slice(0, -41)}
+                    </p>
+                  </div>
+                  <div className={message.classname}>
+                    <p className={message.classname}>{message.message}</p>
+                  </div>
+                </div>
               </div>
-              <p>{message.name}</p>
             </div>
-            <p>{message.message}</p>
           </div>
         ))}
       </div>

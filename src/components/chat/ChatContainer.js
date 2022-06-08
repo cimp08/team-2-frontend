@@ -6,13 +6,11 @@ import { useEffect, useState } from "react";
 
 const ChatContainer = ({ user }) => {
   const [clickedUser, setClickedUser] = useState(null);
-  useEffect(() => {
-    console.log(clickedUser);
-  }, [clickedUser]);
+
   return (
     <>
       <div className="chat-container ">
-        <div className="chat sm:w-5/6 bg-white max-w-4xl rounded-3xl border border-primaryBorder shadow-2xl m py-2 px-10 text-center">
+        <div className="chat bg-white w-2/4 rounded-3xl border border-primaryBorder shadow-2xl m py-5 px-5 text-center">
           <div className="chat-buttons">
             <button className="option" onClick={() => setClickedUser(null)}>
               Matches

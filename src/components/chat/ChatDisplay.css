@@ -1,4 +1,73 @@
 .chat-display {
-    height: 30vh;
+    height: 50vh;
     overflow-y: auto;
 }
+
+.respondingmessage img{
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.img-container-chat{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 60px;
+    margin:0;
+}
+
+.respondingmessage p{
+    padding-top: 10px;
+    max-width: 50%;
+    font-size: 15px;
+}
+
+div.flex-col p.timestamp{
+    font-size: 9px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+
+}
+
+.usermessage{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.respondingmessage{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.usermessage p{
+    background-color: rgb(60, 156, 225);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 15px;
+    max-width: 50%;
+
+}
+.usermessage p.timestamp{
+    background-color: white;
+
+}
+
+@media only screen and (max-height: 750px) {
+    .respondingmessage img{
+      height: 35px;
+      width: 35px;
+    }
+    .chat-display{
+        height: 58vh;
+
+    }
+  
+  }

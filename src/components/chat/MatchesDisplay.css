@@ -6,6 +6,7 @@
     margin: 10px;
     margin-left: 20px;
     cursor:pointer;
+    overflow-y: auto
 }
 
 .img-container img{
