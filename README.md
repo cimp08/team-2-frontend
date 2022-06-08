@@ -84,6 +84,6 @@ Created by:
 
 ## License
 
-Distributed under the [MIT] (https://choosealicense.com/licenses/mit/) License.
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
 
 Feel free to contact us!
