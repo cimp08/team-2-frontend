@@ -78,11 +78,9 @@ It seems that nowadays it is really hard to have a playmate or a walking buddy f
 ## Contact
 Created by:
 
-Write the rest of the team...
-
-
 [@HeidiDragomir](https://github.com/HeidiDragomir)
 [@CemilUlay](https://github.com/cimp08) 
+[@RicardoCastelbon](https://github.com/RicardoCastelbon) 
 
 ## License
 
