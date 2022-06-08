@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# DoggyMatch
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The place where you can find a perfect match for your doggy.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [General Information](#general-information)
+* [Getting Started](#getting-started)
+* [Goals](#goals)
+* [Page and Routes](#[page-and-routes])
+* [Example](#example)
+* [Test](#test)
+* [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
+* [License](#license)
 
-### `npm start`
+## General Information
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Live site
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can find live version here: [DoggyMatch](link)
 
-### `npm test`
+### Built with
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [React](https://reactjs.org)
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Start by cloning the repository.
+2. Install npm dependencies in the root folder:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the react-server:
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. App runs locally on this server: http://localhost:3000/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Goals
 
-## Learn More
+It seems that nowadays it is really hard to have a playmate or a walking buddy for your doggy. You might be thinking that an obvious choice could be family and friends dogs, but you need to be sure it is a good match. You want the best for your doggy. With our app we have a solution to that. We created an app where you can find the perfect match for your buddy. Our app allows your doggy to match with others based on gender or their interests and in the same time will ensure that playdates are fun for all involved.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Page and Routes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Page        | Items       |
+| ----------- | ----------- |
+| **Landing page** <br /> <br /> /  | <br /> <br /> Start page |
+| **Login, signup, profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> /swipe <br /> /chat <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> see all matches <br /> place you can talk with matches |
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Example
 
-### Analyzing the Bundle Size
+### Create doggy profile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- You can create a doggy profile after you have an account. You can add all the details about your doggy.
 
-### Making a Progressive Web App
+### Matches
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- According to your doggy profile we find perfect matches.
 
-### Advanced Configuration
+### Chating
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- You can chat now with your doggy playmate.
+## Test
 
-### Deployment
+- We used Jest for testing to insert, update and delete a dog name.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Acknowledgements
+- This project was inspired by Tinder
 
-### `npm run build` fails to minify
+## Contact
+Created by:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Write the rest of the team...
+
+
+[@HeidiDragomir](https://github.com/HeidiDragomir) 
+
+## License
+
+Distributed under the [MIT] (https://choosealicense.com/licenses/mit/) License.
+
+Feel free to contact us!
