@@ -7,10 +7,12 @@ import { TailSpin } from "react-loader-spinner";
 const MatchesDisplay = ({ matches, setClickedUser }) => {
   const [matchedProfiles, setMatchedProfiles] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(null);
+
   const matchedUserIds = matches.map(({ userId }) => userId);
+
   const [loading, setLoading] = useState(false);
 
-  const userId = cookies.UserId;
+  const userId = cookies.userId;
 
   const getMatches = async () => {
     try {
@@ -20,7 +22,15 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
           params: { userIds: JSON.stringify(matchedUserIds) },
         }
       );
-      setMatchedProfiles(response.data);
+
+      // Check if user also matched with signed in user
+      function filterUsers(users, id) {
+        return users.filter((user) =>
+          user.matches.some((match) => match.userId === id)
+        );
+      }
+
+      setMatchedProfiles(filterUsers(response.data, userId));
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -30,7 +40,6 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
   useEffect(() => {
     setLoading(true);
     getMatches();
-    console.log();
   }, []);
 
   return (
