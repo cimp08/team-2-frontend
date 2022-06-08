@@ -26,8 +26,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      console.log(response);
-      //setCookie("token", response.data.user);
+
       setCookie("userId", response.data.user._id);
 
       const success = response.status === 200;
