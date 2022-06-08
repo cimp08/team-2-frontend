@@ -5,8 +5,8 @@
   margin-bottom: 100px;
 }
 
-.chat{
-  height:auto
+.chat {
+  min-height: 400px;
 }
 
 .chat-buttons {
@@ -29,6 +29,4 @@
   .chat {
     width: 95%;
   }
-
-
 }
