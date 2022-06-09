@@ -1,7 +1,7 @@
 import MatchesDisplay from "./MatchesDisplay";
 import ChatDisplay from "./ChatDisplay";
 import "./ChatContainer.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const ChatContainer = ({ user }) => {
   const [clickedUser, setClickedUser] = useState(null);
