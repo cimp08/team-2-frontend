@@ -41,7 +41,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
   }, []);
 
   return (
-    <div className="flex-col content-center">
+    <div className="matches flex-col content-center">
       {loading ? (
         <div className="flex justify-center items-center">
           <div className="content-center">
@@ -51,7 +51,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
       ) : (
         matchedProfiles?.map((match, _index) => (
           <div key={_index} className="">
-            <div className="flex content-between container">
+            <div className="flex content-between container w-1/2">
               <div className="img-container">
                 <img
                   src={match?.url}
