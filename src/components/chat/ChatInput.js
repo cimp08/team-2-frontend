@@ -1,4 +1,3 @@
-import React from "react";
 import "./ChatInput.css";
 import React, { useState } from "react";
 import axios from "axios";
