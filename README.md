@@ -33,13 +33,15 @@ You can find live version here: [DoggyMatch](https://doggymatch.netlify.app/)
 npm install
 ```
 
-3. Start the react-server:
+3. Create a .env file in the root of the project.
+
+4. Start the react-server:
 
 ```
 npm start
 ```
 
-4. App runs locally on this server: http://localhost:3000/
+5. App runs locally on this server: http://localhost:3000/
 
 ## Goals
 
