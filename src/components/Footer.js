@@ -67,7 +67,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noreferrer"
+      >
         <button className="app-button my-10">Download App!</button>
       </a>
       <hr className="my-6 border-gray-400 sm:mx-auto lg:my-8" />
@@ -122,6 +126,7 @@ const Footer = () => {
             href="https://github.com/cimp08/team-2-frontend"
             target="_blank"
             className="text-gray-500 hover:text-gray-900"
+            rel="noreferrer"
           >
             <svg
               className="w-5 h-5"

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import "./MatchesDisplay.css";
 import { TailSpin } from "react-loader-spinner";
@@ -51,7 +51,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
       ) : (
         matchedProfiles?.map((match, _index) => (
           <div key={_index} className="">
-            <div className="flex content-between container w-1/2">
+            <div className="flex content-between container">
               <div className="img-container">
                 <img
                   src={match?.url}
