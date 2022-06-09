@@ -73,6 +73,7 @@
 .onboarding form input[type="submit"] {
   background: #7f67c5;
   box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+  border: 2px solid transparent;
   border-radius: 30px;
   font-weight: 600;
   font-size: 16px;
@@ -83,6 +84,11 @@
 
 .onboarding form input[type="submit"]:hover {
   border: 2px solid #000000;
+}
+
+.onboarding form input[type="submit"]:active {
+  border: 2px solid #000000;
+  box-shadow: inset 7px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .onboarding form .photo-container img {
