@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import "./MatchesDisplay.css";
 import { TailSpin } from "react-loader-spinner";

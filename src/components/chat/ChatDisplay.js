@@ -2,7 +2,7 @@ import ChatInput from "./ChatInput";
 import ChatHeader from "./ChatHeader";
 import axios from "axios";
 import "./ChatDisplay.css";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const ChatDisplay = ({ user, clickedUser }) => {
   const userId = user?._id;

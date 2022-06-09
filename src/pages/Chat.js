@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import SwipeHeader from "../components/SwipeHeader";
 import "./Chat.css";
 import ChatContainer from "../components/chat/ChatContainer";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
