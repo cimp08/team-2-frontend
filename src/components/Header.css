@@ -44,14 +44,11 @@
     font-size: 25px;
     margin: 0;
   }
+
   .log-button {
-    width: 100px;
-    height: 35px;
-  }
-  .log-button {
-    width: 85px;
-    height: 30px;
-    font-weight: 400;
+    font-size: 14px;
+    width: 90px;
+    height: 34px;
     line-height: 24px;
   }
 }

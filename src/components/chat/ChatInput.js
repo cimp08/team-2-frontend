@@ -1,5 +1,5 @@
 import "./ChatInput.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const ChatInput = ({
@@ -41,7 +41,7 @@ const ChatInput = ({
       />
       <button
         onClick={addMessage}
-        className=" chat-button hover:bg-purple-700 text-white text-sm sm:text-base py-3 px-4 sm:py-2 sm:px-9 rounded-full"
+        className="chat-button hover:bg-purple-700 text-white text-sm sm:text-base py-3 px-4 sm:py-2 sm:px-9 rounded-full"
       >
         Submit
       </button>

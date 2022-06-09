@@ -33,13 +33,15 @@ You can find live version here: [DoggyMatch](https://doggymatch.netlify.app/)
 npm install
 ```
 
-3. Start the react-server:
+3. Create a .env file in the root of the project.
+
+4. Start the react-server:
 
 ```
 npm start
 ```
 
-4. App runs locally on this server: http://localhost:3000/
+5. App runs locally on this server: http://localhost:3000/
 
 ## Goals
 
@@ -87,6 +89,10 @@ Created by:
 [@CemilUlay](https://github.com/cimp08)
 [@RicardoCastelbon](https://github.com/RicardoCastelbon)
 [@SaraAbouDabous](https://github.com/sarz2)
+
+## General Information
+
+- This repository interact with the backend part of DoggyMatch-App. [Backend](https://github.com/cimp08/team-2-backend-final)
 
 ## License
 
