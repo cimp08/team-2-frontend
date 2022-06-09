@@ -36,10 +36,12 @@ const ChatInput = ({
   return (
     <div className="chat-input">
       <textarea
+        data-testid="textarea-test"
         value={textArea}
         onChange={(e) => setTextArea(e.target.value)}
       />
       <button
+        data-testid="button-test"
         onClick={addMessage}
         className="chat-button hover:bg-purple-700 text-white text-sm sm:text-base py-3 px-4 sm:py-2 sm:px-9 rounded-full"
       >
