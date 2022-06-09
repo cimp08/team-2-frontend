@@ -1,14 +1,23 @@
 .chat-input{
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 8px;
 
 }
 
 .chat-input textarea{
-    border: solid 1px rgb(154, 152, 152);
+    border: solid 2px rgb(219, 219, 219);
     width: 80%;
     margin-right: 10px;
     height: 10vh;
-    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.chat-button{
+    background: #7f67c5;
+
+}
+
+.chat-button:hover{
+    background: #5c4b90
 }
