@@ -90,6 +90,10 @@ Created by:
 [@RicardoCastelbon](https://github.com/RicardoCastelbon)
 [@SaraAbouDabous](https://github.com/sarz2)
 
+## General Information
+
+- This repository interact with the backend part of DoggyMatch-App. [Backend](https://github.com/cimp08/team-2-backend-final)
+
 ## License
 
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
