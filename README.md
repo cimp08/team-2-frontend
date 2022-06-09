@@ -4,25 +4,25 @@ The place where you can find a perfect match for your doggy.
 
 ## Table of Contents
 
-* [General Information](#general-information)
-* [Getting Started](#getting-started)
-* [Goals](#goals)
-* [Page and Routes](#[page-and-routes])
-* [Example](#example)
-* [Test](#test)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
-* [License](#license)
+- [General Information](#general-information)
+- [Getting Started](#getting-started)
+- [Goals](#goals)
+- [Page and Routes](#[page-and-routes])
+- [Example](#example)
+- [Test](#test)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
+- [License](#license)
 
 ## General Information
 
 ### Live site
 
-You can find live version here: [DoggyMatch](link)
+You can find live version here: [DoggyMatch](https://doggymatch.netlify.app/)
 
 ### Built with
 
-* [React](https://reactjs.org)
+- [React](https://reactjs.org)
 
 ## Getting Started
 
@@ -41,19 +41,16 @@ npm start
 
 4. App runs locally on this server: http://localhost:3000/
 
-
-
 ## Goals
 
 It seems that nowadays it is really hard to have a playmate or a walking buddy for your doggy. You might be thinking that an obvious choice could be family and friends dogs, but you need to be sure it is a good match. You want the best for your doggy. With our app we have a solution to that. We created an app where you can find the perfect match for your buddy. Our app allows your doggy to match with others based on gender or their interests and in the same time will ensure that playdates are fun for all involved.
 
 ## Page and Routes
 
-| Page        | Items       |
-| ----------- | ----------- |
-| **Landing page** <br /> <br /> /  | <br /> <br /> Start page |
-| **Login, signup, profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> /swipe <br /> /chat <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> see all matches <br /> place you can talk with matches |
-
+| Page                                                                                                             | Items                                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Landing page** <br /> <br /> /                                                                                 | <br /> <br /> Start page                                                                                                                               |
+| **Login, signup, profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> /swipe <br /> /chat <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> swipe on dogs <br /> place you can see and chat with matches |
 
 ## Example
 
@@ -79,14 +76,16 @@ It seems that nowadays it is really hard to have a playmate or a walking buddy f
 - We used Jest for testing to insert, update and delete a dog name.
 
 ## Acknowledgements
+
 - This project was inspired by Tinder
 
 ## Contact
+
 Created by:
 
 [@HeidiDragomir](https://github.com/HeidiDragomir)
-[@CemilUlay](https://github.com/cimp08) 
-[@RicardoCastelbon](https://github.com/RicardoCastelbon) 
+[@CemilUlay](https://github.com/cimp08)
+[@RicardoCastelbon](https://github.com/RicardoCastelbon)
 [@SaraAbouDabous](https://github.com/sarz2)
 
 ## License
