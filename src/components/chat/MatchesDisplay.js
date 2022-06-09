@@ -51,7 +51,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
       ) : (
         matchedProfiles?.map((match, _index) => (
           <div key={_index} className="">
-            <div className="flex content-between container">
+            <div className="flex content-between container w-11/12">
               <div className="img-container">
                 <img
                   src={match?.url}
