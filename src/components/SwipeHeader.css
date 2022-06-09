@@ -8,3 +8,11 @@
     padding: 5px !important;
 }
 
+
+
+@media only screen and (max-width: 960px){
+    div.mt-20 div.swipe_header {
+        flex-direction: row;
+        position: inherit;
+    }
+}
