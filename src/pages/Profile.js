@@ -14,6 +14,7 @@ const Profile = () => {
 
   let navigate = useNavigate();
   const userId = cookies.userId;
+  const token = cookies.token;
 
   const [formData, setFormData] = useState({
     userId: userId,
@@ -34,7 +35,12 @@ const Profile = () => {
         // {
         //   params: { userId },
         // }
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`, // Cross-domain safari
+          },
+        }
       );
       setUser(response.data);
     } catch (err) {

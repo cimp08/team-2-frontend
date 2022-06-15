@@ -20,6 +20,7 @@ const Header = () => {
       );
       console.log(response);
       removeCookie("userId", cookies.userId);
+      removeCookie("token", cookies.token);
 
       const success = response.status === 200;
       if (success) navigate("/");

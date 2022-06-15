@@ -12,6 +12,7 @@ const Chat = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const userId = cookies.userId;
+  const token = cookies.token;
 
   const getUser = async () => {
     try {
@@ -20,7 +21,12 @@ const Chat = () => {
         // {
         //   params: { userId },
         // }
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`, // Cross-domain safari
+          },
+        }
       );
       setUser(response.data);
     } catch (err) {

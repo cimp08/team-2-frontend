@@ -28,6 +28,7 @@ const Login = () => {
       );
 
       setCookie("userId", response.data.user._id);
+      setCookie("token", response.data.token); // Safari doesnt work with cross-domains
 
       const success = response.status === 200;
       if (success) navigate("/swipe");

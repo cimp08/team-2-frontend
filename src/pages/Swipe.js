@@ -20,14 +20,22 @@ const Swipe = () => {
   const [loading, setLoading] = useState(false);
 
   const userId = cookies.userId;
+  const token = cookies.token;
   let navigate = useNavigate();
+  console.log(userId);
+  console.log(token);
 
   // Get User
   const getUser = async () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/v1/users/user`,
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`, // Cross-domain safari
+          },
+        }
       );
       setUser(response.data);
     } catch (err) {
